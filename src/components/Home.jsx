@@ -7,7 +7,8 @@ function Home() {
   return (
     <div className="Home">
       <div className="HomeContainer">
-        <Header/>
+        <Header />
+        <h2>Avaliable Boots</h2>
         <BootsList />
       </div>
     </div>

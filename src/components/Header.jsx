@@ -5,8 +5,21 @@ function Header() {
     <div className="Header">
       <div className="Row">
         <div className="Logo">
-          <img className="LogoIcon" src={require("../assets/images/logos/footpalace.png")} alt="" />
+          <img
+            className="LogoIcon"
+            src={require("../assets/images/logos/footpalace.png")}
+            alt=""
+          />
           <span>Foot Palace</span>
+        </div>
+        <div className="Search">
+          <input
+            type="number"
+            name="idBootSearch"
+            id="idBootSearch"
+            placeholder="Search a boot by Id"
+          />
+          <button><i class="bi bi-search"></i></button>
         </div>
       </div>
     </div>

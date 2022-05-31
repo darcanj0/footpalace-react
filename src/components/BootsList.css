@@ -3,14 +3,124 @@
   grid-template-columns: repeat(3, 1fr);
   column-gap: 25px;
   row-gap: 50px;
-  padding-top: 100px;
+  padding-top: 40px;
+}
+
+@media (max-width: 1660px) {
+  .BootsList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1110px) {
+  .BootsList {
+    grid-template-columns: 1fr;
+  }
 }
 
 .BootsListItem {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  height: 200px;
+  background-color: #9c9ea590;
+  border-radius: 20px;
+  border: 1px solid white;
+  padding: 0.5em;
 }
 
 .BootImg {
-  height: 200px;
+  height: 90px;
+  transform: rotate(-50deg);
+}
+
+.BootInfo {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.BootDescription {
+  font-size: small;
+  text-align: justify;
+}
+
+.BootButtons {
+  height: 15%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Btns {
+  height: 100%;
+  width: 40%;
+  font-family: "Orbitron";
+  border-radius: 10px;
+}
+
+.Btns > i {
+  height: 30px;
+}
+
+.ActionsTest {
+  background-color: #431111;
+  color: white;
+}
+
+@media (max-width: 560px) {
+  .BootsListItem {
+    width: 300px;
+    height: 120px;
+  }
+
+  .BootImg {
+    height: 54px;
+  }
+
+  .BootName {
+    font-size: 0.7em;
+  }
+
+  .BootPrice {
+    font-size: 0.8em;
+  }
+
+  .BootDescription {
+    font-size: x-small;
+  }
+
+  .Btns {
+    font-size: 0.5em;
+    border-radius: 7px;
+  }
+}
+
+@media (max-width: 360px) {
+  .BootsListItem {
+    width: 220px;
+    height: 120px;
+  }
+
+  .BootImg {
+    height: 40px;
+  }
+
+  .BootName {
+    font-size: 0.6em;
+  }
+
+  .BootPrice {
+    font-size: 0.7em;
+  }
+
+  .BootDescription {
+    font-size: .5em;
+  }
+
+  .Btns {
+    font-size: 0.3em;
+  }
 }

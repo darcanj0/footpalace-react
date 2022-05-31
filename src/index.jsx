@@ -5,7 +5,7 @@ import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-      <Home />
+    <Home />
   </React.StrictMode>,
   document.getElementById("root")
 );

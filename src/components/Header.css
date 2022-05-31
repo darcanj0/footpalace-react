@@ -7,6 +7,7 @@
   z-index: 999;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .Row {
@@ -15,6 +16,54 @@
   max-width: 1200px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 1400px) {
+  .Row {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .Row {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 950px) {
+  .Row {
+    max-width: 600px;
+  }
+}
+
+.Search {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}
+
+.Search > button {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  height: 25px;
+  transition: 0.2s ease-in-out;
+}
+
+.Search > button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+#idBootSearch {
+  font-family: "Orbitron";
+  background-color: #431111;
+  color: #ffffff;
+  border: none;
+  height: 30px;
+  padding: 0.1em 1.2em;
+  border-radius: 10px;
 }
 
 .Logo {
@@ -33,4 +82,102 @@
   position: absolute;
   left: -33px;
   top: -20px;
+}
+
+@media (max-width: 770px) {
+  .Row {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .Logo {
+    width: 150px;
+    font-size: 1.2em;
+  }
+
+  .LogoIcon {
+    transform: scale(0.7);
+    left: -50px;
+  }
+
+  .Search {
+    width: 150px;
+    font-size: .9em;
+    gap: .1em;
+  }
+
+  #idBootSearch {
+    width: 100%;
+    font-size: .6em;
+    height: 26px;
+  }
+}
+
+@media (max-width: 650px) {
+  .Row {
+    width: 70%;
+    justify-content: space-between;
+  }
+
+  .Logo {
+    width: 80px;
+    font-size: .7em;
+  }
+
+  .LogoIcon {
+    transform: scale(0.5);
+    left: -35px;
+  }
+
+  .Search {
+    width: 120px;
+    font-size: .85em;
+    gap: .1em;
+  }
+
+  .Search > input {
+    display: flex;
+    align-items: center;
+  }
+
+  .Search > button {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+  }
+
+  #idBootSearch {
+    width: 100%;
+    font-size: .5em;
+    height: 26px;
+  }
+}
+
+@media (max-width: 360px) {
+  .Row {
+    width: 85%;
+    justify-content: space-between;
+  }
+
+  .Logo {
+    width: 70px;
+    font-size: .7em;
+  }
+
+  .Logo > span {
+    font-size: .9em;
+  }
+
+  .LogoIcon {
+    transform: scale(0.45);
+    left: -35px;
+  }
+
+  .Search {
+    width: 120px;
+  }
+
+  #idBootSearch {
+    font-size: .5em;
+  }
 }
