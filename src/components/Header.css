@@ -1,0 +1,30 @@
+.Header {
+  background-color: brown;
+  width: calc(100vw - 20px);
+  height: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+}
+
+.Row {
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+}
+
+.Logo {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  height: 25.22px;
+  padding: 0.2em;
+  background-color: #431111;
+  border-radius: 10px;
+  font-size: 2em;
+  position: relative;
+}

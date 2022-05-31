@@ -1,0 +1,16 @@
+.BootsList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 25px;
+  row-gap: 50px;
+  padding-top: 100px;
+}
+
+.BootsListItem {
+    display: flex;
+    flex-direction: row;
+}
+
+.BootImg {
+  height: 200px;
+}
