@@ -21,10 +21,16 @@
   display: flex;
   align-items: center;
   gap: 1em;
-  height: 25.22px;
-  padding: 0.2em;
-  background-color: #431111;
-  border-radius: 10px;
+  height: 25px;
   font-size: 2em;
   position: relative;
+  background-color: #431111;
+  padding: 0.1em 1.2em;
+  border-radius: 10px;
+}
+
+.LogoIcon {
+  position: absolute;
+  left: -33px;
+  top: -20px;
 }
