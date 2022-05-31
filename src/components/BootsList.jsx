@@ -1,76 +1,26 @@
 import "./BootsList.css";
+import boots from "../mocks/boots.js";
 
 function BootsList() {
   return (
-    <>
-      <div className="BootsList">
+    <div className="BootsList">
+      {boots.map((boot, index) => (
         <div className="BootsListItem">
-          <img
-            className="BootImg"
-            src={require("../assets/images/mercurial-light-blue.png")}
-            alt=""
-          />
+          <img className="BootImg" src={boot.img} alt={boot.name} />
           <div className="BootInfo">
-            <div className="BootName">Nike Mercurial Vapor 14 Elite</div>
-            <div className="BootPrice">U$ 169.99</div>
-            <div className="BootDescription">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
+            <div className="BootName">{boot.name}</div>
+            <div className="BootPrice">{`U$ ${boot.price}`}</div>
+            <div className="BootDescription">{boot.description}</div>
             <div className="BootButtons Actions">
               <button className="ActionsAdd ActionsFill Btns">
-                Add to cart
+                + Add to cart
               </button>
-              <button className="ActionsTest Btns">Edit?</button>
+              {/* <button className="ActionsTest Btns">Edit?</button> */}
             </div>
           </div>
         </div>
-
-        <div className="BootsListItem">
-          <img
-            className="BootImg"
-            src={require("../assets/images/tiempo-red.png")}
-            alt=""
-          />
-          <div className="BootInfo">
-            <div className="BootName">Nike Mercurial Vapor 14 Elite</div>
-            <div className="BootPrice">U$ 169.99</div>
-            <div className="BootDescription">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-            <div className="BootButtons Actions">
-              <button className="ActionsAdd ActionsFill Btns">
-                Add to cart
-              </button>
-              <button className="ActionsTest Btns">Edit?</button>
-            </div>
-          </div>
-        </div>
-
-        <div className="BootsListItem">
-          <img
-            className="BootImg"
-            src={require("../assets/images/phantom-green.png")}
-            alt=""
-          />
-          <div className="BootInfo">
-            <div className="BootName">Nike Mercurial Vapor 14 Elite Pro</div>
-            <div className="BootPrice">U$ 169.99</div>
-            <div className="BootDescription">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-            <div className="BootButtons Actions">
-              <button className="ActionsAdd ActionsFill Btns">
-                Add to cart
-              </button>
-              <button className="ActionsTest Btns">Edit?</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+      ))}
+    </div>
   );
 }
 

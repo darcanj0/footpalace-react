@@ -24,9 +24,9 @@
   justify-content: space-between;
   width: 500px;
   height: 200px;
-  background-color: #9c9ea590;
+  background-color: #ffffff57;
   border-radius: 20px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   padding: 0.5em;
 }
 
@@ -43,9 +43,20 @@
   justify-content: space-between;
 }
 
+.BootName {
+  font-size: 1.3em;
+  color: #ffffff;
+}
+
 .BootDescription {
   font-size: small;
   text-align: justify;
+  color: #a7a7a7;
+}
+
+.BootPrice {
+  color: #f4b900;
+  font-size: 1em;
 }
 
 .BootButtons {
@@ -56,7 +67,8 @@
 
 .Btns {
   height: 100%;
-  width: 40%;
+  /* width: 40%; */
+  width: 70%;
   font-family: "Orbitron";
   border-radius: 10px;
 }
@@ -70,6 +82,11 @@
   color: white;
 }
 
+.ActionsAdd {
+  background-color: #431111;
+  color: #ffffff;
+}
+
 @media (max-width: 560px) {
   .BootsListItem {
     width: 300px;
@@ -81,11 +98,11 @@
   }
 
   .BootName {
-    font-size: 0.7em;
+    font-size: 0.8em;
   }
 
   .BootPrice {
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
 
   .BootDescription {
@@ -109,15 +126,15 @@
   }
 
   .BootName {
-    font-size: 0.6em;
-  }
-
-  .BootPrice {
     font-size: 0.7em;
   }
 
+  .BootPrice {
+    font-size: 0.5em;
+  }
+
   .BootDescription {
-    font-size: .5em;
+    font-size: 0.5em;
   }
 
   .Btns {

@@ -1,5 +1,5 @@
 .Header {
-  background-color: brown;
+  background-color: #a52a2a;
   width: calc(100vw - 20px);
   height: 80px;
   position: fixed;
@@ -102,13 +102,13 @@
 
   .Search {
     width: 150px;
-    font-size: .9em;
-    gap: .1em;
+    font-size: 0.9em;
+    gap: 0.1em;
   }
 
   #idBootSearch {
     width: 100%;
-    font-size: .6em;
+    font-size: 0.6em;
     height: 26px;
   }
 }
@@ -121,7 +121,7 @@
 
   .Logo {
     width: 80px;
-    font-size: .7em;
+    font-size: 0.7em;
   }
 
   .LogoIcon {
@@ -131,8 +131,8 @@
 
   .Search {
     width: 120px;
-    font-size: .85em;
-    gap: .1em;
+    font-size: 0.85em;
+    gap: 0.1em;
   }
 
   .Search > input {
@@ -148,7 +148,7 @@
 
   #idBootSearch {
     width: 100%;
-    font-size: .5em;
+    font-size: 0.5em;
     height: 26px;
   }
 }
@@ -161,11 +161,11 @@
 
   .Logo {
     width: 70px;
-    font-size: .7em;
+    font-size: 0.7em;
   }
 
   .Logo > span {
-    font-size: .9em;
+    font-size: 0.9em;
   }
 
   .LogoIcon {
@@ -178,6 +178,6 @@
   }
 
   #idBootSearch {
-    font-size: .5em;
+    font-size: 0.5em;
   }
 }
