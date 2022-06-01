@@ -13,7 +13,7 @@ function BootsList() {
             <div className="BootDescription">{boot.description}</div>
             <div className="BootButtons Actions">
               <button className="ActionsAdd ActionsFill Btns">
-                + Add to cart
+              + Add to cart
               </button>
               {/* <button className="ActionsTest Btns">Edit?</button> */}
             </div>

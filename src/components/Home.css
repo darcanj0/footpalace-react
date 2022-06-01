@@ -18,9 +18,10 @@
 }
 
 .HomeContainer > h2 {
-  margin-top: 200px;
+  margin-top: 20px;
   color: #ffffff;
 }
+
 @media (max-width: 350px) {
   .HomeContainer {
     justify-content: unset;
