@@ -59,16 +59,23 @@
   font-size: 1em;
 }
 
+.BootBadge {
+  background-color: #431111;
+  border-radius: 80%;
+  padding: .2em .4em;
+}
+
 .BootButtons {
   height: 15%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .Btns {
   height: 100%;
-  /* width: 40%; */
-  width: 70%;
+  width: 35%;
+  /* width: 70%; */
   font-family: "Orbitron";
   border-radius: 10px;
   transition: all .2s ease-out;
@@ -78,6 +85,14 @@
   color: #f4b900;
   cursor: pointer;
   transform: scale(1.05);
+}
+
+.bi-cart-dash::before {
+  transform: scale(1.6);
+}
+
+.bi-cart-plus::before {
+  transform: scale(1.6);
 }
 
 .ActionsTest {
