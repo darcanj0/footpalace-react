@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./BootsList.css";
-import boots from "../mocks/boots.js";
+import boots from "mocks/boots";
 
 function BootsList() {
   const [selectedBoot, setSelectedBoot] = useState({});
@@ -12,6 +12,25 @@ function BootsList() {
     setSelectedBoot({ ...selectedBoot, ...boot });
   };
 
+  const removeItem = (bootIndex) => {
+    const boot = { [bootIndex]: Number(selectedBoot[bootIndex] || 0) - 1 };
+    setSelectedBoot({ ...selectedBoot, ...boot });
+  };
+
+  //renderização condicional
+  const badgeCounter = (canRender, index) =>
+    Boolean(canRender) && (
+      <span className="BootBadge">{selectedBoot[index]}</span>
+    );
+
+  //renderização condicional
+  const removeButton = (canRender, index) =>
+    Boolean(canRender) && (
+      <button className="ActionsTest Btns" onClick={() => removeItem(index)}>
+        <i class="bi bi-cart-dash"></i>
+      </button>
+    );
+
   return (
     <div className="BootsList">
       {boots.map((boot, index) => (
@@ -22,12 +41,13 @@ function BootsList() {
             <div className="BootPrice">{`U$ ${boot.price}`}</div>
             <div className="BootDescription">{boot.description}</div>
             <div className="BootButtons Actions">
-              <button className="ActionsTest Btns">
-                <i class="bi bi-cart-dash"></i>
-              </button>
-              <span className="BootBadge"> {selectedBoot[index] || 0} </span>
+              {removeButton(selectedBoot[index], index)}
+              {badgeCounter(selectedBoot[index], index)}
+              {/* estilizacao condicional */}
               <button
-                className="ActionsAdd ActionsFill Btns"
+                className={`ActionsAdd Btns ${
+                  selectedBoot[index] && "ActionsReduce"
+                }`}
                 onClick={() => addItem(index)}
               >
                 <i class="bi bi-cart-plus"></i>

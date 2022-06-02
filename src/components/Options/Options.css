@@ -11,7 +11,7 @@
 }
 
 #options > i {
-  transform: scale(2);
+  transform: scale(1.5);
   transition: all 0.2s ease-out;
 }
 

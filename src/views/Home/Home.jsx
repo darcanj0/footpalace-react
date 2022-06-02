@@ -1,8 +1,8 @@
 import "./Home.css";
 
-import Header from "./Header";
-import Options from "./Options";
-import BootsList from "./BootsList";
+import Header from "components/Header/Header";
+import Options from "components/Options/Options";
+import BootsList from "components/BootsList/BootsList";
 
 function Home() {
   return (

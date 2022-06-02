@@ -62,7 +62,7 @@
 .BootBadge {
   background-color: #431111;
   border-radius: 80%;
-  padding: .2em .4em;
+  padding: 0.2em 0.4em;
 }
 
 .BootButtons {
@@ -72,13 +72,27 @@
   align-items: center;
 }
 
+.ActionsAdd {
+  width: 100%;
+}
+
+.ActionsReduce {
+  width: 40%;
+}
+
+.ActionsTest {
+  background-color: #6b1b1b;
+  color: #ffffff;
+  width: 40%;
+}
+
 .Btns {
-  height: 100%;
-  width: 35%;
-  /* width: 70%; */
+  transition: all 0.2s ease-out;
+  background-color: #6b1b1b;
+  color: #ffffff;
   font-family: "Orbitron";
   border-radius: 10px;
-  transition: all .2s ease-out;
+  height: 100%;
 }
 
 .Btns:hover {
@@ -93,16 +107,6 @@
 
 .bi-cart-plus::before {
   transform: scale(1.6);
-}
-
-.ActionsTest {
-  background-color: #6b1b1b;
-  color: white;
-}
-
-.ActionsAdd {
-  background-color: #6b1b1b;
-  color: #ffffff;
 }
 
 @media (max-width: 560px) {
@@ -131,6 +135,10 @@
     font-size: 0.5em;
     border-radius: 7px;
   }
+
+  .BootBadge {
+    font-size: 0.5em;
+  }
 }
 
 @media (max-width: 360px) {
@@ -157,5 +165,9 @@
 
   .Btns {
     font-size: 0.3em;
+  }
+
+  .BootBadge {
+    font-size: 0.45em;
   }
 }
