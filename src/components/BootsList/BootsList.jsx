@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./BootsList.css";
 import Card from "components/Card/Card";
 // import boots from "mocks/boots";
@@ -63,19 +63,40 @@ import Card from "components/Card/Card";
 
 function BootsList() {
   const baseURL = "http://localhost:3001/boots";
+
   const [boots, setBoots] = useState([]);
   const getAllBoots = async () => {
     const response = await fetch(`${baseURL}/find-boots`);
     const list = await response.json();
     setBoots(list);
   };
+
+  // estado: montagem
+  useEffect(() => {
+    getAllBoots();
+  }, []);
+
+  const [bootsSelection, setBootsSelection] = useState({});
+
+  // {id:3, id:2, ...}
+
+  // function addItem(bootId) {
+  //   const boot = { [bootId]: Number(bootsSelection[bootId] || 0) + 1 };
+  //   setBootsSelection({ ...bootsSelection, ...boot });
+  // };
+
+  // function removeItem(bootId) {
+  //   const boot = { [bootId]: Number(bootsSelection[bootId] || 0) - 1 };
+  //   setBootsSelection({ ...bootsSelection, ...boot });
+  // };
+
   return (
     <>
       <button className="DefaultButton" id="listAll" onClick={getAllBoots}>
         List all Boots
       </button>
       <div className="BootsList">
-        {boots.map((elem) => {
+        {boots.map((elem, index) => {
           return (
             <Card
               name={elem.name}
@@ -83,6 +104,10 @@ function BootsList() {
               img={elem.img}
               price={elem.price}
               key={elem._id}
+              identity={elem._id}
+              quantity={bootsSelection[elem._id]}
+              // onAdd={addItem(elem._id)}
+              // onRemove={removeItem(elem._id)}
             />
           );
         })}

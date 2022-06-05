@@ -1,15 +1,29 @@
 import "./Card.css";
 
-function Card(props) {
+function Card({ img, name, price, description, identity, quantity }) {
+  // const badgeCounter = (canRender, quantity) => {
+  //   Boolean(canRender) && <span className="BootBadge">{quantity}</span>;
+  // };
+
+  // const removeButton = (canRender, key) => {
+  //   Boolean(canRender) && (
+  //     <button className="ActionsTest Btns" onClick={() => onRemove(key)}>
+  //       <i class="bi bi-cart-dash"></i>
+  //     </button>
+  //   );
+  // };
+
   return (
     <div className="BootsListItem">
-      <img className="BootImg" src={`${props.img}`} alt={props.name} />
+      <img className="BootImg" src={`${img}`} alt={name} />
       <div className="BootInfo">
-        <div className="BootName">{props.name}</div>
-        <div className="BootPrice">{`U$ ${props.price}`}</div>
-        <div className="BootDescription">{props.description}</div>
+        <div className="BootName">{name}</div>
+        <div className="BootPrice">{`U$ ${price}`}</div>
+        <div className="BootDescription">{description}</div>
         <div className="BootButtons Actions">
-          <button className="Btns ActionsAdd">
+          {/* {badgeCounter(true, quantity)}
+          {removeButton(true, quantity)} */}
+          <button className={`ActionsAdd Btns ${quantity && "ActionsReduce"}`}>
             <i className="bi bi-cart-plus"></i>
           </button>
         </div>
