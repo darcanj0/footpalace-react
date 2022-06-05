@@ -20,7 +20,7 @@ function Header() {
             placeholder="Search a boot by Id"
           />
           <button>
-            <i class="bi bi-search"></i>
+            <i className="bi bi-search"></i>
           </button>
         </div>
       </div>

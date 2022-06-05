@@ -11,14 +11,14 @@
 }
 
 #options > i {
-  transform: scale(1.5);
+  transform: scale(1.4);
   transition: all 0.2s ease-out;
 }
 
 #options > i:hover {
   color: #f4b900;
   cursor: pointer;
-  transform: scale(2.1);
+  transform: scale(1.6);
 }
 
 #optionsButtons {
