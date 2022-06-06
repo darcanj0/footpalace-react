@@ -24,13 +24,13 @@ import Card from "components/Card/Card";
 //       <span className="BootBadge">{selectedBoot[index]}</span>
 //     );
 
-//   //renderização condicional
-//   const removeButton = (canRender, index) =>
-//     Boolean(canRender) && (
-//       <button className="ActionsTest Btns" onClick={() => removeItem(index)}>
-//         <i class="bi bi-cart-dash"></i>
-//       </button>
-//     );
+// //renderização condicional
+// const removeButton = (canRender, index) =>
+//   Boolean(canRender) && (
+//     <button className="ActionsTest Btns" onClick={() => removeItem(index)}>
+//       <i class="bi bi-cart-dash"></i>
+//     </button>
+//   );
 
 //   return (
 //     <div className="BootsList">
@@ -61,7 +61,7 @@ import Card from "components/Card/Card";
 //   );
 // }
 
-function BootsList() {
+const BootsList = () => {
   const baseURL = "http://localhost:3001/boots";
 
   const [boots, setBoots] = useState([]);
@@ -78,17 +78,15 @@ function BootsList() {
 
   const [bootsSelection, setBootsSelection] = useState({});
 
-  // {id:3, id:2, ...}
+  const addItem = (bootId) => {
+    const boot = { [bootId]: Number(bootsSelection[bootId] || 0) + 1 };
+    setBootsSelection({ ...bootsSelection, ...boot });
+  };
 
-  // function addItem(bootId) {
-  //   const boot = { [bootId]: Number(bootsSelection[bootId] || 0) + 1 };
-  //   setBootsSelection({ ...bootsSelection, ...boot });
-  // };
-
-  // function removeItem(bootId) {
-  //   const boot = { [bootId]: Number(bootsSelection[bootId] || 0) - 1 };
-  //   setBootsSelection({ ...bootsSelection, ...boot });
-  // };
+  const removeItem = (bootId) => {
+    const boot = { [bootId]: Number(bootsSelection[bootId] || 0) - 1 };
+    setBootsSelection({ ...bootsSelection, ...boot });
+  };
 
   return (
     <>
@@ -106,14 +104,14 @@ function BootsList() {
               key={elem._id}
               identity={elem._id}
               quantity={bootsSelection[elem._id]}
-              // onAdd={addItem(elem._id)}
-              // onRemove={removeItem(elem._id)}
+              onAdd={addItem}
+              onRemove={removeItem}
             />
           );
         })}
       </div>
     </>
   );
-}
+};
 
 export default BootsList;
