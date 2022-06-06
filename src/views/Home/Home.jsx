@@ -1,17 +1,11 @@
 import "./Home.css";
 
-import Header from "components/Header/Header";
-import Options from "components/Options/Options";
-import BootsList from "components/BootsList/BootsList";
+import HomeContainer from "components/HomeContainer/HomeContainer";
 
 function Home() {
   return (
     <div className="Home">
-      <div className="HomeContainer">
-        <Header />
-        <Options />
-        <BootsList />
-      </div>
+      <HomeContainer />
     </div>
   );
 }

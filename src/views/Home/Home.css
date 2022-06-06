@@ -10,20 +10,3 @@
     #160c0c 80%
   );
 }
-
-.HomeContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.HomeContainer > h2 {
-  margin-top: 20px;
-  color: #ffffff;
-}
-
-@media (max-width: 350px) {
-  .HomeContainer {
-    justify-content: unset;
-  }
-}
