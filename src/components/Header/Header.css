@@ -102,8 +102,8 @@
   }
 
   .Search {
-    width: 150px;
-    font-size: 0.9em;
+    width: 170px;
+    font-size: 1em;
     gap: 0.1em;
   }
 
@@ -131,7 +131,7 @@
   }
 
   .Search {
-    width: 120px;
+    width: 150px;
     font-size: 0.85em;
     gap: 0.1em;
   }
