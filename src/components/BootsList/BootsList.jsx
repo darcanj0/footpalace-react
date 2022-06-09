@@ -15,7 +15,6 @@ const BootsList = ({ consumerView }) => {
     setBoots(list);
   };
 
-  // estado: montagem
   useEffect(() => {
     getAllBoots();
   }, []);
