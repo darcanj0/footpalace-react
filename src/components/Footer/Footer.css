@@ -1,6 +1,49 @@
 .Footer {
-  width: 100%;
+  width: calc(100% - 1em);
   background-color: #a52a2a;
   border-radius: 0 0 20px 20px;
   margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5em;
+}
+
+#rights {
+  width: 150px;
+  font-size: 0.8em;
+}
+
+#contacts {
+  display: flex;
+  gap: 10px;
+  width: 150px;
+}
+
+@media (max-width: 480px) {
+  .Footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #rights {
+    font-size: 0.5em;
+    width: 100px;
+    order: 3;
+  }
+
+  #contacts {
+    flex-direction: column;
+    width: fit-content;
+    order: 2;
+  }
+
+  #contacts > img {
+    height: 20px;
+  }
+
+  .Footer > img {
+    height: 25px;
+    order: 1;
+  }
 }

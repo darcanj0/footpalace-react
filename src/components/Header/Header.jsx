@@ -8,7 +8,7 @@ function Header() {
           <img
             className="LogoIcon"
             src={require("assets/logos/footpalace.png")}
-            alt=""
+            alt="Foot Palace logo"
           />
           <span>Foot Palace</span>
         </div>

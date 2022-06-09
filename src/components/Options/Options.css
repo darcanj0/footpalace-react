@@ -18,7 +18,7 @@
 #options > i:hover {
   color: #f4b900;
   cursor: pointer;
-  transform: scale(1.6);
+  transform: scale(1.5);
 }
 
 #optionsButtons {
@@ -43,4 +43,18 @@
   color: #f4b900;
   cursor: pointer;
   transform: scale(1.05);
+}
+
+@media (max-width: 650px) {
+  .DefaultButton {
+    font-size: .7em;
+  }
+
+  #options > i {
+    transform: scale(1.1);
+  }
+
+  #options > i:hover {
+    transform: scale(1.2);
+  }
 }
