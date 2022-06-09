@@ -21,35 +21,7 @@
   transform: scale(1.5);
 }
 
-#optionsButtons {
-  border: 2px solid greenyellow;
-  display: flex;
-  flex-direction: column;
-}
-
-.DefaultButton {
-  padding: 0.4em 1em;
-  background-color: #6b1b1b;
-  color: #ffffff;
-  font-family: "Orbitron";
-  border-radius: 10px;
-  font-size: 1em;
-  transition: all 0.2s ease-out;
-  display: flex;
-  align-items: center;
-}
-
-.DefaultButton:hover {
-  color: #f4b900;
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
 @media (max-width: 650px) {
-  .DefaultButton {
-    font-size: .7em;
-  }
-
   #options > i {
     transform: scale(1.1);
   }

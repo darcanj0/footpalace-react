@@ -3,7 +3,7 @@ import "./Options.css";
 import { toast } from "react-hot-toast";
 
 function Options() {
-  const showErrorAlert = (type, message) => {
+  const showAlert = (type, message) => {
     if (type === "error") {
       toast.error(message, {
         iconTheme: {
@@ -28,7 +28,7 @@ function Options() {
       <button
         className="DefaultButton"
         onClick={() => {
-          showErrorAlert("error", `In development...`);
+          showAlert("error", "In development");
         }}
       >
         Sign In
@@ -36,7 +36,7 @@ function Options() {
       <i
         className="bi bi-cart-plus"
         onClick={() => {
-          showErrorAlert("error", `In development...`);
+          showAlert("error", `In development...`);
         }}
       ></i>
     </div>

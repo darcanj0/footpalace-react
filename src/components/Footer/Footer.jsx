@@ -9,14 +9,14 @@ import githubLogo from "assets/logos/github.png";
 const Footer = () => {
   return (
     <div className="Footer">
+      <p id="rights">All rights reserved ®</p>
+      <img height="40px" src={footPalaceLogo} alt="Foot Palace logo" />
       <div id="contacts">
         <img height="30px" src={wppLogo} alt="Whatsapp contact" />
         <img height="30px" src={emailLogo} alt="Email contact" />
         <img height="30px" src={lnkdnLogo} alt="Linkedin page" />
         <img height="30px" src={githubLogo} alt="Github page" />
       </div>
-      <img height="40px" src={footPalaceLogo} alt="Foot Palace logo" />
-      <p id="rights">All rights reserved ®</p>
     </div>
   );
 };

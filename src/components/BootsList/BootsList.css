@@ -17,3 +17,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+.ButtonsContainer {
+  margin-top: 20px;
+  width: 90%;
+  max-width: 1610px;
+  display: flex;
+  justify-content: space-between;
+}

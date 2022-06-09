@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
 import "./BootsList.css";
+
 import Card from "components/Card/Card";
+import DefaultButton from "components/DefaultButton/DefaultButton";
+
+import React, { useState, useEffect } from "react";
 
 const BootsList = () => {
   const baseURL = "http://localhost:3001/boots";
@@ -29,11 +32,14 @@ const BootsList = () => {
     setBootsSelection({ ...bootsSelection, ...boot });
   };
 
+  const openCreationModal = () => {};
+
   return (
     <>
-      <button className="DefaultButton" id="listAll" onClick={getAllBoots}>
-        List all Boots
-      </button>
+      <div className="ButtonsContainer">
+        <DefaultButton onclick={getAllBoots}>List All Boots</DefaultButton>
+        <DefaultButton onclick={openCreationModal}>Add new Boots</DefaultButton>
+      </div>
       <div className="BootsList">
         {boots.map((elem, index) => {
           return (
