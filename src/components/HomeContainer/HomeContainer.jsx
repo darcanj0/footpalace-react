@@ -6,11 +6,13 @@ import BootsList from "components/BootsList/BootsList";
 import Footer from "components/Footer/Footer";
 
 const HomeContainer = () => {
+  let consumerView = false;
+
   return (
     <div className="HomeContainer">
       <Header />
-      <Options />
-      <BootsList />
+      {consumerView && <Options />}
+      <BootsList consumerView={consumerView} />
       <Footer />
     </div>
   );

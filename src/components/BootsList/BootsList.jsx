@@ -5,7 +5,7 @@ import DefaultButton from "components/DefaultButton/DefaultButton";
 
 import React, { useState, useEffect } from "react";
 
-const BootsList = () => {
+const BootsList = ({ consumerView }) => {
   const baseURL = "http://localhost:3001/boots";
 
   const [boots, setBoots] = useState([]);
@@ -36,9 +36,16 @@ const BootsList = () => {
 
   return (
     <>
-      <div className="ButtonsContainer">
+      <div
+        className="ButtonsContainer"
+        style={{ marginTop: consumerView ? "0px" : "100px" }}
+      >
         <DefaultButton onclick={getAllBoots}>List All Boots</DefaultButton>
-        <DefaultButton onclick={openCreationModal}>Add new Boots</DefaultButton>
+        {!consumerView && (
+          <DefaultButton onclick={openCreationModal}>
+            Add new Boot
+          </DefaultButton>
+        )}
       </div>
       <div className="BootsList">
         {boots.map((elem, index) => {
@@ -53,6 +60,7 @@ const BootsList = () => {
               quantity={bootsSelection[elem._id]}
               onAdd={addItem}
               onRemove={removeItem}
+              consumerView={consumerView}
             />
           );
         })}

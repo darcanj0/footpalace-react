@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   column-gap: 25px;
   row-gap: 50px;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 @media (max-width: 1660px) {
@@ -19,7 +19,7 @@
 }
 
 .ButtonsContainer {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 90%;
   max-width: 1610px;
   display: flex;

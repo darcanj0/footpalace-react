@@ -9,6 +9,7 @@ function Card({
   quantity,
   onAdd,
   onRemove,
+  consumerView,
 }) {
   const badgeCounter = (quantity) =>
     Boolean(quantity) && <span className="BootBadge">{quantity}</span>;
@@ -27,18 +28,29 @@ function Card({
         <div className="BootName">{name}</div>
         <div className="BootPrice">{`U$ ${price}`}</div>
         <div className="BootDescription">{description}</div>
-        <div className="BootButtons Actions">
-          {removeButton(quantity, identity)}
-          {badgeCounter(quantity)}
-          <button
-            onClick={() => {
-              onAdd(identity);
-            }}
-            className={`ActionsAdd Btns ${quantity && "ActionsReduce"}`}
-          >
-            <i className="bi bi-cart-plus"></i>
-          </button>
-        </div>
+        {consumerView ? (
+          <div className="BootButtons Actions">
+            {removeButton(quantity, identity)}
+            {badgeCounter(quantity)}
+            <button
+              onClick={() => {
+                onAdd(identity);
+              }}
+              className={`ActionsAdd Btns ${quantity && "ActionsReduce"}`}
+            >
+              <i className="bi bi-cart-plus"></i>
+            </button>
+          </div>
+        ) : (
+          <div className="BootActions BootButtons">
+            <button className="Btns ActionsTest">
+              <i className="bi bi-pencil-square"></i>
+            </button>
+            <button className="Btns ActionsTest">
+              <i className="bi bi-trash"></i>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

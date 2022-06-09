@@ -81,12 +81,14 @@
   transform: scale(1.05);
 }
 
-.bi-cart-dash::before {
+.bi-cart-dash::before,
+.bi-cart-plus::before {
   transform: scale(1.6);
 }
 
-.bi-cart-plus::before {
-  transform: scale(1.6);
+.bi-pencil-square::before,
+.bi-trash::before {
+  transform: scale(1.4);
 }
 
 @media (max-width: 650px) {
