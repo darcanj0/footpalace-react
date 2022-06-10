@@ -1,0 +1,12 @@
+.ModalOverlay {
+  z-index: 999999;
+  width: 100vw;
+  min-height: 100%;
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  background-color: #000000b3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

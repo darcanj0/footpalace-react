@@ -1,5 +1,9 @@
 import "./NewBootModal.css";
 
+import ModalOverlay from "../ModalOverlay/ModalOverlay";
+import ModalContainer from "../ModalContainer/ModalContainer";
+import ModalHeader from "../ModalHeader/ModalHeader";
+
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
@@ -8,15 +12,12 @@ const NewBootModal = ({ handleShowNewBootModal, showNewBootModal }) => {
 
   return (
     showNewBootModal && (
-      <div className="ModalOverlay">
-        <div className="ModalContainer">
-          <div className="ModalHeader">
-            <span className="ModalHeaderTitle">Create a new Boot</span>
-            <i
-              className="bi bi-x-circle-fill"
-              onClick={handleShowNewBootModal}
-            ></i>
-          </div>
+      <ModalOverlay>
+        <ModalContainer>
+          <ModalHeader
+            title={"Create a new boot"}
+            onclick={handleShowNewBootModal}
+          />
           <div className="ModalBody">
             <div>
               <label htmlFor="bootName">Name</label>
@@ -37,8 +38,8 @@ const NewBootModal = ({ handleShowNewBootModal, showNewBootModal }) => {
 
             <button className="DefaultButton">Create Boot</button>
           </div>
-        </div>
-      </div>
+        </ModalContainer>
+      </ModalOverlay>
     )
   );
 };
