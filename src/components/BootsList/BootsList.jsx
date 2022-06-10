@@ -43,6 +43,7 @@ const BootsList = ({ consumerView, baseURL, showAlert }) => {
         showNewBootModal={showNewBootModal}
         baseURL={baseURL}
         showAlert={showAlert}
+        getAllBoots={getAllBoots}
       />
       <div
         className="ButtonsContainer"

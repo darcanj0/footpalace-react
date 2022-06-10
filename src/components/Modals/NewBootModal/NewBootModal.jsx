@@ -10,6 +10,7 @@ const NewBootModal = ({
   showNewBootModal,
   baseURL,
   showAlert,
+  getAllBoots,
 }) => {
   const [inputsValues, setInputsValues] = useState({
     name: "",
@@ -50,6 +51,8 @@ const NewBootModal = ({
       description: "",
       img: "",
     });
+
+    getAllBoots();
   };
 
   return (
