@@ -23,6 +23,13 @@
   resize: none;
 }
 
+.ModalBody > section {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
 @media (max-width: 1110px) {
   .ModalBody {
     height: 380px;

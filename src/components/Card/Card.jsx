@@ -1,5 +1,9 @@
 import "./Card.css";
 
+import DeleteBootModal from "components/Modals/DeleteBootModal/DeleteBootModal";
+
+import { useState } from "react";
+
 function Card({
   img,
   name,
@@ -11,6 +15,12 @@ function Card({
   onRemove,
   consumerView,
 }) {
+  //delete modal logic
+  const [showDeleteBootModal, setShowDeleteBootModal] = useState(false);
+
+  const handleShowDeleteBootModal = () => {
+    setShowDeleteBootModal(!showDeleteBootModal);
+  };
 
   //add, remove and show how many items in each card
   const badgeCounter = (quantity) =>
@@ -24,37 +34,43 @@ function Card({
     );
 
   return (
-    <div className="BootsListItem">
-      <img className="BootImg" src={`${img}`} alt={name} />
-      <div className="BootInfo">
-        <div className="BootName">{name}</div>
-        <div className="BootPrice">{`U$ ${price}`}</div>
-        <div className="BootDescription">{description}</div>
-        {consumerView ? (
-          <div className="BootButtons Actions">
-            {removeButton(quantity, identity)}
-            {badgeCounter(quantity)}
-            <button
-              onClick={() => {
-                onAdd(identity);
-              }}
-              className={`ActionsAdd Btns ${quantity && "ActionsReduce"}`}
-            >
-              <i className="bi bi-cart-plus"></i>
-            </button>
-          </div>
-        ) : (
-          <div className="BootActions BootButtons">
-            <button className="Btns ActionsTest">
-              <i className="bi bi-pencil-square"></i>
-            </button>
-            <button className="Btns ActionsTest">
-              <i className="bi bi-trash"></i>
-            </button>
-          </div>
-        )}
+    <>
+      <DeleteBootModal
+        handleShowDeleteBootModal={handleShowDeleteBootModal}
+        showDeleteBootModal={showDeleteBootModal}
+      />
+      <div className="BootsListItem">
+        <img className="BootImg" src={`${img}`} alt={name} />
+        <div className="BootInfo">
+          <div className="BootName">{name}</div>
+          <div className="BootPrice">{`U$ ${price}`}</div>
+          <div className="BootDescription">{description}</div>
+          {consumerView ? (
+            <div className="BootButtons Actions">
+              {removeButton(quantity, identity)}
+              {badgeCounter(quantity)}
+              <button
+                onClick={() => {
+                  onAdd(identity);
+                }}
+                className={`ActionsAdd Btns ${quantity && "ActionsReduce"}`}
+              >
+                <i className="bi bi-cart-plus"></i>
+              </button>
+            </div>
+          ) : (
+            <div className="BootActions BootButtons">
+              <button className="Btns ActionsTest">
+                <i className="bi bi-pencil-square"></i>
+              </button>
+              <button className="Btns ActionsTest" onClick={handleShowDeleteBootModal}>
+                <i className="bi bi-trash"></i>
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
