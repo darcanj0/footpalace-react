@@ -19,19 +19,12 @@ const HomeContainer = () => {
     setSearchInputValue(event.target.value);
   };
   const handleBootSearch = () => {
-    if (searchInputValue === "") {
-      return showAlert("error", "No results found");
-    }
     setSearchInputValue("");
-    document.getElementById("idBootSearch").value = "";
     setFilteredBoots(
       boots.filter((boot) => {
         return boot.name.toLowerCase().includes(searchInputValue.toLowerCase());
       })
     );
-    if (filteredBoots.length === 0) {
-      showAlert("error", "No results found!");
-    }
   };
 
   //toggle between adm and user vew
@@ -70,6 +63,7 @@ const HomeContainer = () => {
         changeView={handleChangeView}
         handleBootSearch={handleBootSearch}
         handleSearchInputChange={handleSearchInputChange}
+        searchInputValue={searchInputValue}
       />
       {consumerView && <Options showAlert={showAlert} />}
       <BootsList

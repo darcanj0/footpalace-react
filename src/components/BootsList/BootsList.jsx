@@ -21,7 +21,6 @@ const BootsList = ({
     const response = await fetch(`${baseURL}/boots/find-boots`);
     const list = await response.json();
     setBoots(list);
-    setFilteredBoots([]);
   };
 
   useEffect(() => {
