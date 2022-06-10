@@ -6,12 +6,10 @@ import NewBootModal from "components/Modals/NewBootModal/NewBootModal";
 
 import React, { useState, useEffect } from "react";
 
-const BootsList = ({ consumerView }) => {
-  const baseURL = "http://localhost:3001/boots";
-
+const BootsList = ({ consumerView, baseURL, showAlert }) => {
   const [boots, setBoots] = useState([]);
   const getAllBoots = async () => {
-    const response = await fetch(`${baseURL}/find-boots`);
+    const response = await fetch(`${baseURL}/boots/find-boots`);
     const list = await response.json();
     setBoots(list);
   };
@@ -43,6 +41,8 @@ const BootsList = ({ consumerView }) => {
       <NewBootModal
         handleShowNewBootModal={handleShowNewBootModal}
         showNewBootModal={showNewBootModal}
+        baseURL={baseURL}
+        showAlert={showAlert}
       />
       <div
         className="ButtonsContainer"
