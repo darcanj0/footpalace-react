@@ -1,6 +1,11 @@
 import "./Header.css";
 
-function Header({ changeView }) {
+const Header = ({
+  changeView,
+  searchInputValue,
+  handleBootSearch,
+  handleSearchInputChange,
+}) => {
   return (
     <div className="Header">
       <div className="Row">
@@ -17,18 +22,21 @@ function Header({ changeView }) {
         </button>
         <div className="Search">
           <input
-            type="number"
+            spellCheck="false"
+            type="text"
             name="idBootSearch"
             id="idBootSearch"
-            placeholder="Search a boot by Id"
+            placeholder="Search a boot"
+            value={searchInputValue}
+            onChange={handleSearchInputChange}
           />
-          <button>
+          <button onClick={handleBootSearch}>
             <i className="bi bi-search"></i>
           </button>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Header;

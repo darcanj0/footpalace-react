@@ -6,18 +6,27 @@ import NewBootModal from "components/Modals/NewBootModal/NewBootModal";
 
 import React, { useState, useEffect } from "react";
 
-const BootsList = ({ consumerView, baseURL, showAlert }) => {
+const BootsList = ({
+  consumerView,
+  baseURL,
+  showAlert,
+  boots,
+  setBoots,
+  filteredBoots,
+  setFilteredBoots,
+  setSearchInputValue,
+}) => {
   //boots list and find all fetch
-  const [boots, setBoots] = useState([]);
   const getAllBoots = async () => {
     const response = await fetch(`${baseURL}/boots/find-boots`);
     const list = await response.json();
     setBoots(list);
+    setFilteredBoots([]);
   };
 
   useEffect(() => {
     getAllBoots();
-  });
+  }, []);
 
   //state that determines whether to show the creation modal or not
   const [showNewBootModal, setShowNewBootModal] = useState(false);
@@ -60,25 +69,45 @@ const BootsList = ({ consumerView, baseURL, showAlert }) => {
         )}
       </div>
       <div className="BootsList">
-        {boots.map((elem, index) => {
-          return (
-            <Card
-              name={elem.name}
-              description={elem.description}
-              img={elem.img}
-              price={elem.price}
-              key={elem._id}
-              identity={elem._id}
-              quantity={bootsSelection[elem._id]}
-              onAdd={addItem}
-              onRemove={removeItem}
-              consumerView={consumerView}
-              baseURL={baseURL}
-              showAlert={showAlert}
-              getAllBoots={getAllBoots}
-            />
-          );
-        })}
+        {filteredBoots.length === 0
+          ? boots.map((elem, index) => {
+              return (
+                <Card
+                  name={elem.name}
+                  description={elem.description}
+                  img={elem.img}
+                  price={elem.price}
+                  key={elem._id}
+                  identity={elem._id}
+                  quantity={bootsSelection[elem._id]}
+                  onAdd={addItem}
+                  onRemove={removeItem}
+                  consumerView={consumerView}
+                  baseURL={baseURL}
+                  showAlert={showAlert}
+                  getAllBoots={getAllBoots}
+                />
+              );
+            })
+          : filteredBoots.map((elem, index) => {
+              return (
+                <Card
+                  name={elem.name}
+                  description={elem.description}
+                  img={elem.img}
+                  price={elem.price}
+                  key={elem._id}
+                  identity={elem._id}
+                  quantity={bootsSelection[elem._id]}
+                  onAdd={addItem}
+                  onRemove={removeItem}
+                  consumerView={consumerView}
+                  baseURL={baseURL}
+                  showAlert={showAlert}
+                  getAllBoots={getAllBoots}
+                />
+              );
+            })}
       </div>
     </>
   );

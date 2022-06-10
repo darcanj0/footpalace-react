@@ -9,10 +9,33 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 
 const HomeContainer = () => {
+  //bootsList
+  const [boots, setBoots] = useState([]);
+
+  //search system
+  const [searchInputValue, setSearchInputValue] = useState("");
+  const [filteredBoots, setFilteredBoots] = useState([]);
+  const handleSearchInputChange = (event) => {
+    setSearchInputValue(event.target.value);
+  };
+  const handleBootSearch = () => {
+    if (searchInputValue === "") {
+      return showAlert("error", "No results found");
+    }
+    setSearchInputValue("");
+    document.getElementById("idBootSearch").value = "";
+    setFilteredBoots(
+      boots.filter((boot) => {
+        return boot.name.toLowerCase().includes(searchInputValue.toLowerCase());
+      })
+    );
+    if (filteredBoots.length === 0) {
+      showAlert("error", "No results found!");
+    }
+  };
 
   //toggle between adm and user vew
   const [consumerView, setConsumerView] = useState();
-
   const handleChangeView = () => {
     setConsumerView(!consumerView);
   };
@@ -43,9 +66,21 @@ const HomeContainer = () => {
 
   return (
     <div className="HomeContainer">
-      <Header changeView={handleChangeView} />
+      <Header
+        changeView={handleChangeView}
+        handleBootSearch={handleBootSearch}
+        handleSearchInputChange={handleSearchInputChange}
+      />
       {consumerView && <Options showAlert={showAlert} />}
-      <BootsList consumerView={consumerView} baseURL={baseURL} showAlert={showAlert} />
+      <BootsList
+        consumerView={consumerView}
+        baseURL={baseURL}
+        showAlert={showAlert}
+        filteredBoots={filteredBoots}
+        setFilteredBoots={setFilteredBoots}
+        boots={boots}
+        setBoots={setBoots}
+      />
       <Footer />
     </div>
   );
