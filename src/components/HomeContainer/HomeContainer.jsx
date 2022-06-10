@@ -6,7 +6,7 @@ import BootsList from "components/BootsList/BootsList";
 import Footer from "components/Footer/Footer";
 
 const HomeContainer = () => {
-  let consumerView = true;
+  let consumerView = false;
 
   return (
     <div className="HomeContainer">
