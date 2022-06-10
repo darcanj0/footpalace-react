@@ -12,6 +12,7 @@ const NewBootModal = ({
   showAlert,
   getAllBoots,
 }) => {
+  //state for the inputs in creation modal
   const [inputsValues, setInputsValues] = useState({
     name: "",
     price: "",
@@ -23,9 +24,11 @@ const NewBootModal = ({
     setInputsValues({ ...inputsValues, [property]: event.target.value });
   };
 
+  //user clicks in create button
   const handleCreateBoot = async () => {
     const newBoot = { ...inputsValues };
 
+    //close modal
     handleShowNewBootModal();
 
     const response = await fetch(`${baseURL}/boots/create-boot`, {
@@ -39,12 +42,14 @@ const NewBootModal = ({
 
     const createdBoot = await response.json();
 
+    //api returns error messages
     if (createdBoot.message) {
       showAlert("error", createdBoot.message);
     } else {
       showAlert("success", "Boot successfully created!");
     }
 
+    //restart input values only when adm hits create button
     setInputsValues({
       name: "",
       price: "",
@@ -52,9 +57,11 @@ const NewBootModal = ({
       img: "",
     });
 
+    //update the boots list
     getAllBoots();
   };
 
+  //how to build up a modal using pre prepared modules
   return (
     showNewBootModal && (
       <ModalOverlay>
@@ -65,8 +72,9 @@ const NewBootModal = ({
           />
           <ModalBody>
             <div>
-              <label htmlFor="bootName">Name</label>
+              <label htmlFor="bootName">Boot name</label>
               <input
+                spellCheck="false"
                 type="text"
                 name="bootName"
                 value={inputsValues.name}
@@ -76,7 +84,7 @@ const NewBootModal = ({
               />
             </div>
             <div>
-              <label htmlFor="bootPrice">Price</label>
+              <label htmlFor="bootPrice">Price (U$)</label>
               <input
                 type="number"
                 name="bootPrice"
@@ -88,8 +96,10 @@ const NewBootModal = ({
             </div>
             <div>
               <label htmlFor="bootDescription">Description</label>
-              <input
-                type="textarea"
+              <textarea
+                spellCheck="false"
+                rows={3}
+                cols={35}
                 name="bootDescription"
                 value={inputsValues.description}
                 onChange={(e) => {
@@ -98,8 +108,9 @@ const NewBootModal = ({
               />
             </div>
             <div>
-              <label htmlFor="bootImg">Image</label>
+              <label htmlFor="bootImg">Image URL</label>
               <input
+                spellCheck="false"
                 type="text"
                 name="bootImg"
                 value={inputsValues.img}

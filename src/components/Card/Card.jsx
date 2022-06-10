@@ -11,6 +11,8 @@ function Card({
   onRemove,
   consumerView,
 }) {
+
+  //add, remove and show how many items in each card
   const badgeCounter = (quantity) =>
     Boolean(quantity) && <span className="BootBadge">{quantity}</span>;
 

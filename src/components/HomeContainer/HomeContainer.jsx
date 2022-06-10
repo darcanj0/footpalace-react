@@ -9,12 +9,15 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 
 const HomeContainer = () => {
+
+  //toggle between adm and user vew
   const [consumerView, setConsumerView] = useState();
 
   const handleChangeView = () => {
     setConsumerView(!consumerView);
   };
 
+  //show alert function
   const showAlert = (type, message) => {
     if (type === "error") {
       toast.error(message, {
@@ -35,6 +38,7 @@ const HomeContainer = () => {
     }
   };
 
+  //baseURL variable
   const baseURL = "http://localhost:3001";
 
   return (
