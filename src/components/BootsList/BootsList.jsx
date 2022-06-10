@@ -18,7 +18,7 @@ const BootsList = ({ consumerView, baseURL, showAlert }) => {
     getAllBoots();
   }, []);
 
-  const [showNewBootModal, setShowNewBootModal] = useState(true);
+  const [showNewBootModal, setShowNewBootModal] = useState(false);
 
   const handleShowNewBootModal = () => {
     setShowNewBootModal(!showNewBootModal);
