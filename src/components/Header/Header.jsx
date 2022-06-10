@@ -1,6 +1,6 @@
 import "./Header.css";
 
-function Header() {
+function Header({ changeView }) {
   return (
     <div className="Header">
       <div className="Row">
@@ -12,6 +12,9 @@ function Header() {
           />
           <span>Foot Palace</span>
         </div>
+        <button className="DefaultButton" onClick={changeView}>
+          View
+        </button>
         <div className="Search">
           <input
             type="number"

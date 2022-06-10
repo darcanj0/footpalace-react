@@ -1,0 +1,165 @@
+.ModalOverlay {
+  z-index: 999999;
+  width: 100vw;
+  height: calc(100% + 10px);
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  background-color: #000000b3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ModalContainer {
+  height: 500px;
+  width: 800px;
+  background-color: #333;
+  border-radius: 20px;
+}
+
+.ModalHeader {
+  background-color: #a52a2a;
+  width: calc(100% - 4em);
+  padding: 0em 2em;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ModalHeaderTitle {
+  font-size: 1.5em;
+}
+
+.ModalHeader > i {
+  cursor: pointer;
+  transform: scale(1.4);
+  transition: all 0.2s ease-out;
+}
+
+.ModalHeader > i:hover {
+  color: #f4b900;
+  transform: scale(1.5);
+}
+
+.ModalBody {
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.ModalBody > div {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 5px;
+}
+
+.ModalBody > div > input {
+  width: calc(100% - 8px);
+  border-radius: 10px;
+  padding: 0.5em;
+  font-family: "Orbitron";
+}
+
+@media (max-width: 1110px) {
+  .ModalContainer {
+    height: 450px;
+    width: 500px;
+  }
+
+  .ModalHeader {
+    height: 70px;
+  }
+
+  .ModalHeaderTitle {
+    font-size: 1em;
+  }
+
+  .ModalHeader > i {
+    transform: scale(1.2);
+  }
+
+  .ModalHeader > i:hover {
+    transform: scale(1.25);
+  }
+
+  .ModalBody {
+    height: 380px;
+  }
+
+  .ModalBody > div > input,
+  .ModalBody > div > label {
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 650px) {
+  .ModalContainer {
+    height: 400px;
+    width: 320px;
+  }
+
+  .ModalHeader {
+    height: 50px;
+  }
+
+  .ModalHeaderTitle {
+    font-size: 0.9em;
+  }
+
+  .ModalHeader > i {
+    transform: scale(1);
+  }
+
+  .ModalHeader > i:hover {
+    transform: scale(1.05);
+  }
+
+  .ModalBody {
+    height: 350px;
+  }
+
+  .ModalBody > div > input {
+    padding: 0.4em;
+  }
+
+  .ModalBody > div > input,
+  .ModalBody > div > label {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 360px) {
+  .ModalContainer {
+    height: 500px;
+    width: 250px;
+  }
+
+  .ModalHeader {
+    height: 70px;
+    width: calc(100% - 1.6em);
+    padding: 0em 0.8em;
+  }
+
+  .ModalHeaderTitle {
+    font-size: 0.7em;
+  }
+
+  .ModalHeader > i:hover {
+    transform: scale(1.1);
+  }
+
+  .ModalBody {
+    height: 430px;
+  }
+
+  .ModalBody > div > input,
+  .ModalBody > div > label {
+    font-size: 0.7em;
+  }
+}

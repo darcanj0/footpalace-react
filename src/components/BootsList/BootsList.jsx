@@ -2,6 +2,7 @@ import "./BootsList.css";
 
 import Card from "components/Card/Card";
 import DefaultButton from "components/DefaultButton/DefaultButton";
+import NewBootModal from "components/Modals/NewBootModal/NewBootModal";
 
 import React, { useState, useEffect } from "react";
 
@@ -19,6 +20,12 @@ const BootsList = ({ consumerView }) => {
     getAllBoots();
   }, []);
 
+  const [showNewBootModal, setShowNewBootModal] = useState(false);
+
+  const handleShowNewBootModal = () => {
+    setShowNewBootModal(!showNewBootModal);
+  };
+
   const [bootsSelection, setBootsSelection] = useState({});
 
   const addItem = (bootId) => {
@@ -31,17 +38,19 @@ const BootsList = ({ consumerView }) => {
     setBootsSelection({ ...bootsSelection, ...boot });
   };
 
-  const openCreationModal = () => {};
-
   return (
     <>
+      <NewBootModal
+        handleShowNewBootModal={handleShowNewBootModal}
+        showNewBootModal={showNewBootModal}
+      />
       <div
         className="ButtonsContainer"
         style={{ marginTop: consumerView ? "0px" : "100px" }}
       >
         <DefaultButton onclick={getAllBoots}>List All Boots</DefaultButton>
         {!consumerView && (
-          <DefaultButton onclick={openCreationModal}>
+          <DefaultButton onclick={handleShowNewBootModal}>
             Add new Boot
           </DefaultButton>
         )}

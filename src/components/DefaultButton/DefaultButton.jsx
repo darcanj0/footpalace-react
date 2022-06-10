@@ -2,7 +2,7 @@ import "./DefaultButton.css";
 
 const DefaultButton = ({ children, onclick }) => {
   return (
-    <button className="DefaultButton" onclick={onclick}>
+    <button className="DefaultButton" onClick={onclick}>
       {children}
     </button>
   );
