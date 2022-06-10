@@ -7,7 +7,6 @@ import NewBootModal from "components/Modals/NewBootModal/NewBootModal";
 import React, { useState, useEffect } from "react";
 
 const BootsList = ({ consumerView, baseURL, showAlert }) => {
-
   //boots list and find all fetch
   const [boots, setBoots] = useState([]);
   const getAllBoots = async () => {
@@ -18,7 +17,7 @@ const BootsList = ({ consumerView, baseURL, showAlert }) => {
 
   useEffect(() => {
     getAllBoots();
-  }, []);
+  });
 
   //state that determines whether to show the creation modal or not
   const [showNewBootModal, setShowNewBootModal] = useState(false);
@@ -74,6 +73,9 @@ const BootsList = ({ consumerView, baseURL, showAlert }) => {
               onAdd={addItem}
               onRemove={removeItem}
               consumerView={consumerView}
+              baseURL={baseURL}
+              showAlert={showAlert}
+              getAllBoots={getAllBoots}
             />
           );
         })}

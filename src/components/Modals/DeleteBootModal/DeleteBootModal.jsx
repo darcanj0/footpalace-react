@@ -8,7 +8,29 @@ import ModalBody from "../ModalBody/ModalBody";
 const DeleteBootModal = ({
   handleShowDeleteBootModal,
   showDeleteBootModal,
+  identity,
+  baseURL,
+  showAlert,
+  getAllBoots,
 }) => {
+  const handleBootDeletion = async () => {
+    const response = await fetch(`${baseURL}/boots/delete-boot/${identity}`, {
+      method: "delete",
+      mode: "cors",
+    });
+
+    handleShowDeleteBootModal();
+
+    if (response.status === 204) {
+      showAlert("success", "Boot successfully deleted!");
+    } else {
+      const result = await response.json();
+      showAlert("error", result.message);
+    }
+
+    getAllBoots();
+  };
+
   return (
     showDeleteBootModal && (
       <ModalOverlay>
@@ -19,7 +41,13 @@ const DeleteBootModal = ({
           />
           <ModalBody>
             <h3>Do you really want to delete this boot?</h3>
-            <button className="DeleteBootModalButtons" id="yes">
+            <button
+              className="DeleteBootModalButtons"
+              id="yes"
+              onClick={() => {
+                handleBootDeletion(identity);
+              }}
+            >
               Yes
             </button>
           </ModalBody>

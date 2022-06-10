@@ -14,6 +14,9 @@ function Card({
   onAdd,
   onRemove,
   consumerView,
+  baseURL,
+  showAlert,
+  getAllBoots
 }) {
   //delete modal logic
   const [showDeleteBootModal, setShowDeleteBootModal] = useState(false);
@@ -38,6 +41,10 @@ function Card({
       <DeleteBootModal
         handleShowDeleteBootModal={handleShowDeleteBootModal}
         showDeleteBootModal={showDeleteBootModal}
+        identity={identity}
+        baseURL={baseURL}
+        showAlert={showAlert}
+        getAllBoots={getAllBoots}
       />
       <div className="BootsListItem">
         <img className="BootImg" src={`${img}`} alt={name} />
@@ -63,7 +70,10 @@ function Card({
               <button className="Btns ActionsTest">
                 <i className="bi bi-pencil-square"></i>
               </button>
-              <button className="Btns ActionsTest" onClick={handleShowDeleteBootModal}>
+              <button
+                className="Btns ActionsTest"
+                onClick={handleShowDeleteBootModal}
+              >
                 <i className="bi bi-trash"></i>
               </button>
             </div>
