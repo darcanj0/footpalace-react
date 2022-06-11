@@ -19,7 +19,7 @@ const HomeContainer = () => {
   };
 
   //toggle between adm and user vew
-  const [consumerView, setConsumerView] = useState();
+  const [consumerView, setConsumerView] = useState(true);
   const handleChangeView = () => {
     setConsumerView(!consumerView);
   };

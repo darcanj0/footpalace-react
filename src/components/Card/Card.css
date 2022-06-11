@@ -8,6 +8,16 @@
   border-radius: 20px;
   border: 2px solid #5e5a5a;
   padding: 0.5em;
+  animation: cardEntrance .5s ease;
+}
+
+@keyframes cardEntrance {
+  0% {
+    margin-top: 30px;
+  }
+  100% {
+    margin-top: 0px;
+  }
 }
 
 .BootImg {
