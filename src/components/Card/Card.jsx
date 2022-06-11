@@ -1,6 +1,7 @@
 import "./Card.css";
 
 import DeleteBootModal from "components/Modals/DeleteBootModal/DeleteBootModal";
+import EditBootModal from "components/Modals/EditBootModal/EditBootModal";
 
 import { useState } from "react";
 
@@ -16,13 +17,20 @@ function Card({
   consumerView,
   baseURL,
   showAlert,
-  getAllBoots
+  getAllBoots,
 }) {
   //delete modal logic
   const [showDeleteBootModal, setShowDeleteBootModal] = useState(false);
 
   const handleShowDeleteBootModal = () => {
     setShowDeleteBootModal(!showDeleteBootModal);
+  };
+
+  //edit modal logic
+  const [showEditBootModal, setShowEditBootModal] = useState(false);
+
+  const handleShowEditBootModal = () => {
+    setShowEditBootModal(!showEditBootModal);
   };
 
   //add, remove and show how many items in each card
@@ -46,6 +54,18 @@ function Card({
         showAlert={showAlert}
         getAllBoots={getAllBoots}
       />
+      <EditBootModal
+        handleShowEditBootModal={handleShowEditBootModal}
+        showEditBootModal={showEditBootModal}
+        identity={identity}
+        baseURL={baseURL}
+        showAlert={showAlert}
+        getAllBoots={getAllBoots}
+        name={name}
+        price={price}
+        description={description}
+        img={img}
+      />
       <div className="BootsListItem">
         <img className="BootImg" src={`${img}`} alt={name} />
         <div className="BootInfo">
@@ -67,7 +87,10 @@ function Card({
             </div>
           ) : (
             <div className="BootActions BootButtons">
-              <button className="Btns ActionsTest">
+              <button
+                className="Btns ActionsTest"
+                onClick={handleShowEditBootModal}
+              >
                 <i className="bi bi-pencil-square"></i>
               </button>
               <button

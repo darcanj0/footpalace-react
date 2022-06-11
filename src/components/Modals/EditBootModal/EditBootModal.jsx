@@ -2,37 +2,38 @@ import ModalOverlay from "../ModalOverlay/ModalOverlay";
 import ModalContainer from "../ModalContainer/ModalContainer";
 import ModalHeader from "../ModalHeader/ModalHeader";
 import ModalBody from "../ModalBody/ModalBody";
-
 import { useState } from "react";
 
-const NewBootModal = ({
-  handleShowNewBootModal,
-  showNewBootModal,
+const EditBootModal = ({
+  showEditBootModal,
+  handleShowEditBootModal,
   baseURL,
   showAlert,
   getAllBoots,
+  identity,
+  name,
+  price,
+  description,
+  img,
 }) => {
-  //state for the inputs in creation modal
   const [inputsValues, setInputsValues] = useState({
-    name: "",
-    price: "",
-    description: "",
-    img: "",
+    name,
+    price,
+    description,
+    img,
   });
 
   const handleModalInputChange = (event, property) => {
     setInputsValues({ ...inputsValues, [property]: event.target.value });
   };
 
-  //user clicks in create button
-  const handleCreateBoot = async () => {
+  const handleEditBoot = async () => {
     const newBoot = { ...inputsValues };
 
-    //close modal
-    handleShowNewBootModal();
+    handleShowEditBootModal();
 
-    const response = await fetch(`${baseURL}/boots/create-boot`, {
-      method: "post",
+    const response = await fetch(`${baseURL}/boots/update-boot/${identity}`, {
+      method: "put",
       headers: {
         "Content-Type": "application/json",
       },
@@ -40,36 +41,22 @@ const NewBootModal = ({
       body: JSON.stringify(newBoot),
     });
 
-    const createdBoot = await response.json();
+    const editedBoot = await response.json();
 
-    //api returns error messages
-    if (createdBoot.message) {
-      showAlert("error", createdBoot.message);
+    if (editedBoot.message) {
+      showAlert("error", editedBoot.message);
     } else {
-      showAlert("success", "Boot successfully created!");
+      showAlert("success", "Boot successfully edited!");
     }
 
-    //restart input values only when adm hits create button
-    setInputsValues({
-      name: "",
-      price: "",
-      description: "",
-      img: "",
-    });
-
-    //update the boots list
     getAllBoots();
   };
 
-  //how to build up a modal using pre prepared modules
   return (
-    showNewBootModal && (
+    showEditBootModal && (
       <ModalOverlay>
         <ModalContainer>
-          <ModalHeader
-            title={"Create a new boot"}
-            onclick={handleShowNewBootModal}
-          />
+          <ModalHeader title={"Update boot"} onclick={handleShowEditBootModal} />
           <ModalBody>
             <div>
               <label htmlFor="bootName">Boot name</label>
@@ -87,8 +74,8 @@ const NewBootModal = ({
             <div>
               <label htmlFor="bootPrice">Price (U$)</label>
               <input
-                type="number"
                 autoComplete="off"
+                type="number"
                 name="bootPrice"
                 value={inputsValues.price}
                 onChange={(e) => {
@@ -99,10 +86,9 @@ const NewBootModal = ({
             <div>
               <label htmlFor="bootDescription">Description</label>
               <textarea
-                spellCheck="false"
-                rows="3"
-                cols="35"
                 name="bootDescription"
+                cols="35"
+                rows="3"
                 value={inputsValues.description}
                 onChange={(e) => {
                   handleModalInputChange(e, "description");
@@ -122,14 +108,8 @@ const NewBootModal = ({
                 }}
               />
             </div>
-
-            <button
-              className="DefaultButton"
-              onClick={() => {
-                handleCreateBoot();
-              }}
-            >
-              Create Boot
+            <button className="DefaultButton" onClick={handleEditBoot}>
+              Update Boot
             </button>
           </ModalBody>
         </ModalContainer>
@@ -138,4 +118,4 @@ const NewBootModal = ({
   );
 };
 
-export default NewBootModal;
+export default EditBootModal;
