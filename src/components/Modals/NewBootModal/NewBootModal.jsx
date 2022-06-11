@@ -75,6 +75,7 @@ const NewBootModal = ({
               <label htmlFor="bootName">Boot name</label>
               <input
                 spellCheck="false"
+                autoComplete="off"
                 type="text"
                 name="bootName"
                 value={inputsValues.name}
@@ -87,6 +88,7 @@ const NewBootModal = ({
               <label htmlFor="bootPrice">Price (U$)</label>
               <input
                 type="number"
+                autoComplete="off"
                 name="bootPrice"
                 value={inputsValues.price}
                 onChange={(e) => {
@@ -111,6 +113,7 @@ const NewBootModal = ({
               <label htmlFor="bootImg">Image URL</label>
               <input
                 spellCheck="false"
+                autoComplete="off"
                 type="text"
                 name="bootImg"
                 value={inputsValues.img}
