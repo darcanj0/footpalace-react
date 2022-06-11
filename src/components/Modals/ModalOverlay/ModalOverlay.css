@@ -9,4 +9,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: overlayShow .5s ease;
+}
+
+@keyframes overlayShow {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }

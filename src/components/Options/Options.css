@@ -12,7 +12,7 @@
 
 #options > i {
   transform: scale(1.4);
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease;
 }
 
 #options > i:hover {

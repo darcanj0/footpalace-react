@@ -4,7 +4,6 @@
   justify-content: space-between;
   width: 500px;
   height: 200px;
-  /* background-color: #ffffff57; */
   background-color: #2e2b2b;
   border-radius: 20px;
   border: 2px solid #5e5a5a;
@@ -14,6 +13,22 @@
 .BootImg {
   height: 90px;
   transform: rotate(-50deg);
+}
+
+@keyframes bootImageAnimation {
+  0% {
+    transform: rotate(-50deg);
+  }
+  50% {
+    transform: rotate(-40deg);
+  }
+  100% {
+    transform: rotate(-50deg);
+  }
+}
+
+.BootsListItem:hover .BootImg {
+  animation: bootImageAnimation 20s ease infinite;
 }
 
 .BootInfo {
@@ -68,7 +83,7 @@
 }
 
 .Btns {
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease;
   background-color: #6b1b1b;
   color: #ffffff;
   font-family: "Orbitron";
