@@ -5,6 +5,8 @@ import ModalContainer from "../ModalContainer/ModalContainer";
 import ModalHeader from "../ModalHeader/ModalHeader";
 import ModalBody from "../ModalBody/ModalBody";
 
+import api from "api";
+
 const DeleteBootModal = ({
   handleShowDeleteBootModal,
   showDeleteBootModal,
@@ -14,18 +16,14 @@ const DeleteBootModal = ({
   getAllBoots,
 }) => {
   const handleBootDeletion = async () => {
-    const response = await fetch(`${baseURL}/boots/delete-boot/${identity}`, {
-      method: "delete",
-      mode: "cors",
-    });
-
     handleShowDeleteBootModal();
-
-    if (response.status === 204) {
-      showAlert("success", "Boot successfully deleted!");
-    } else {
-      const result = await response.json();
-      showAlert("error", result.message);
+    try {
+      const response = await api.delete(`/boots/delete-boot/${identity}`);
+      if (response.status === 204) {
+        showAlert("success", "Boot successfully deleted!");
+      }
+    } catch (error) {
+      showAlert("error", error.response.data.message);
     }
 
     getAllBoots();

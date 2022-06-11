@@ -5,6 +5,7 @@ import DefaultButton from "components/DefaultButton/DefaultButton";
 import NewBootModal from "components/Modals/NewBootModal/NewBootModal";
 
 import React, { useState, useEffect } from "react";
+import api from "api";
 
 const BootsList = ({
   consumerView,
@@ -17,9 +18,13 @@ const BootsList = ({
 }) => {
   //boots list and find all fetch
   const getAllBoots = async () => {
-    const response = await fetch(`${baseURL}/boots/find-boots`);
-    const list = await response.json();
-    setBoots(list);
+    try {
+      const response = await api.get("/boots/find-boots");
+      setBoots(response.data);
+    } catch (error) {
+      //shows message that comes from api
+      showAlert("error", error.response.data.message);
+    }
     setSearchInputValue("");
   };
 

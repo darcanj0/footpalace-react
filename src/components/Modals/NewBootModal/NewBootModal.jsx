@@ -4,6 +4,7 @@ import ModalHeader from "../ModalHeader/ModalHeader";
 import ModalBody from "../ModalBody/ModalBody";
 
 import { useState } from "react";
+import api from "api";
 
 const NewBootModal = ({
   handleShowNewBootModal,
@@ -27,26 +28,14 @@ const NewBootModal = ({
   //user clicks in create button
   const handleCreateBoot = async () => {
     const newBoot = { ...inputsValues };
-
-    //close modal
     handleShowNewBootModal();
-
-    const response = await fetch(`${baseURL}/boots/create-boot`, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "cors",
-      body: JSON.stringify(newBoot),
-    });
-
-    const createdBoot = await response.json();
-
-    //api returns error messages
-    if (createdBoot.message) {
-      showAlert("error", createdBoot.message);
-    } else {
-      showAlert("success", "Boot successfully created!");
+    try {
+      const response = await api.post("/boots/create-boot", newBoot);
+      if (response.status === 201) {
+        showAlert("success", "Boot successfully created!");
+      }
+    } catch (error) {
+      showAlert("error", error.response.data.message);
     }
 
     //restart input values only when adm hits create button

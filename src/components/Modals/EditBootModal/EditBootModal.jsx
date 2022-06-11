@@ -3,6 +3,7 @@ import ModalContainer from "../ModalContainer/ModalContainer";
 import ModalHeader from "../ModalHeader/ModalHeader";
 import ModalBody from "../ModalBody/ModalBody";
 import { useState } from "react";
+import api from "api";
 
 const EditBootModal = ({
   showEditBootModal,
@@ -29,24 +30,15 @@ const EditBootModal = ({
 
   const handleEditBoot = async () => {
     const newBoot = { ...inputsValues };
-
     handleShowEditBootModal();
 
-    const response = await fetch(`${baseURL}/boots/update-boot/${identity}`, {
-      method: "put",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "cors",
-      body: JSON.stringify(newBoot),
-    });
-
-    const editedBoot = await response.json();
-
-    if (editedBoot.message) {
-      showAlert("error", editedBoot.message);
-    } else {
-      showAlert("success", "Boot successfully edited!");
+    try {
+      const response = await api.put(`/boots/update-boot/${identity}`, newBoot);
+      if (response.status === 200) {
+        showAlert("success", "Boot successfully updated!");
+      }
+    } catch (error) {
+      showAlert("error", error.response.data.message);
     }
 
     getAllBoots();
@@ -56,7 +48,10 @@ const EditBootModal = ({
     showEditBootModal && (
       <ModalOverlay>
         <ModalContainer>
-          <ModalHeader title={"Update boot"} onclick={handleShowEditBootModal} />
+          <ModalHeader
+            title={"Update boot"}
+            onclick={handleShowEditBootModal}
+          />
           <ModalBody>
             <div>
               <label htmlFor="bootName">Boot name</label>
