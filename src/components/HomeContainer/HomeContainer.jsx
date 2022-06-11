@@ -62,7 +62,7 @@ const HomeContainer = () => {
         showAlert={showAlert}
         boots={boots}
         setBoots={setBoots}
-        handleSearchInputChange={handleSearchInputChange}
+        setSearchInputValue={setSearchInputValue}
         searchInputValue={searchInputValue}
       />
       <Footer />
