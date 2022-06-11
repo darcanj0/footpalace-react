@@ -14,17 +14,8 @@ const HomeContainer = () => {
 
   //search system
   const [searchInputValue, setSearchInputValue] = useState("");
-  const [filteredBoots, setFilteredBoots] = useState([]);
   const handleSearchInputChange = (event) => {
     setSearchInputValue(event.target.value);
-  };
-  const handleBootSearch = () => {
-    setSearchInputValue("");
-    setFilteredBoots(
-      boots.filter((boot) => {
-        return boot.name.toLowerCase().includes(searchInputValue.toLowerCase());
-      })
-    );
   };
 
   //toggle between adm and user vew
@@ -61,7 +52,6 @@ const HomeContainer = () => {
     <div className="HomeContainer">
       <Header
         changeView={handleChangeView}
-        handleBootSearch={handleBootSearch}
         handleSearchInputChange={handleSearchInputChange}
         searchInputValue={searchInputValue}
       />
@@ -70,10 +60,10 @@ const HomeContainer = () => {
         consumerView={consumerView}
         baseURL={baseURL}
         showAlert={showAlert}
-        filteredBoots={filteredBoots}
-        setFilteredBoots={setFilteredBoots}
         boots={boots}
         setBoots={setBoots}
+        handleSearchInputChange={handleSearchInputChange}
+        searchInputValue={searchInputValue}
       />
       <Footer />
     </div>

@@ -12,8 +12,7 @@ const BootsList = ({
   showAlert,
   boots,
   setBoots,
-  filteredBoots,
-  setFilteredBoots,
+  searchInputValue,
   setSearchInputValue,
 }) => {
   //boots list and find all fetch
@@ -68,7 +67,7 @@ const BootsList = ({
         )}
       </div>
       <div className="BootsList">
-        {filteredBoots.length === 0
+        {searchInputValue === ""
           ? boots.map((elem, index) => {
               return (
                 <Card
@@ -88,25 +87,31 @@ const BootsList = ({
                 />
               );
             })
-          : filteredBoots.map((elem, index) => {
-              return (
-                <Card
-                  name={elem.name}
-                  description={elem.description}
-                  img={elem.img}
-                  price={elem.price}
-                  key={elem._id}
-                  identity={elem._id}
-                  quantity={bootsSelection[elem._id]}
-                  onAdd={addItem}
-                  onRemove={removeItem}
-                  consumerView={consumerView}
-                  baseURL={baseURL}
-                  showAlert={showAlert}
-                  getAllBoots={getAllBoots}
-                />
-              );
-            })}
+          : boots
+              .filter((elem) => {
+                return elem.name
+                  .toLowerCase()
+                  .includes(searchInputValue.toLowerCase());
+              })
+              .map((elem) => {
+                return (
+                  <Card
+                    name={elem.name}
+                    description={elem.description}
+                    img={elem.img}
+                    price={elem.price}
+                    key={elem._id}
+                    identity={elem._id}
+                    quantity={bootsSelection[elem._id]}
+                    onAdd={addItem}
+                    onRemove={removeItem}
+                    consumerView={consumerView}
+                    baseURL={baseURL}
+                    showAlert={showAlert}
+                    getAllBoots={getAllBoots}
+                  />
+                );
+              })}
       </div>
     </>
   );

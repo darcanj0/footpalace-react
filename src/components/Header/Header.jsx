@@ -30,9 +30,6 @@ const Header = ({
             value={searchInputValue}
             onChange={handleSearchInputChange}
           />
-          <button onClick={handleBootSearch}>
-            <i className="bi bi-search"></i>
-          </button>
         </div>
       </div>
     </div>
