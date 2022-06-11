@@ -23,6 +23,7 @@ const Header = ({
         <div className="Search">
           <input
             spellCheck="false"
+            autoComplete="off"
             type="text"
             name="idBootSearch"
             id="idBootSearch"
