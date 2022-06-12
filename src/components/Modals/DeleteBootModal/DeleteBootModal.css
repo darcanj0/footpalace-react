@@ -6,15 +6,19 @@
   color: white;
   cursor: pointer;
   border-radius: 10px;
-  transition: all .2s ease-out;
+  transition: all 0.2s ease-out;
   border: 1px solid white;
 }
 
 #yes {
   background-color: #a52a2a;
+  background: #a52a2a;
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+  border: 1px solid #a52a2a;
 }
 
 .DeleteBootModalButtons:hover {
-    color: #f4b900;
-    transform: scale(1.03);
+  color: #f4b900;
+  transform: scale(1.03);
 }

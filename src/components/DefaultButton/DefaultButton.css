@@ -1,6 +1,9 @@
 .DefaultButton {
   padding: 0.4em 1em;
-  background-color: #6b1b1b;
+  background: #6b1b1bcc;
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+  border: 1px solid rgba(107, 27, 27, 0.4);
   color: #ffffff;
   font-family: "Orbitron";
   border-radius: 10px;

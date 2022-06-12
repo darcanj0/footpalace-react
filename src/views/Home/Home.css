@@ -4,9 +4,7 @@
   min-height: calc(100vh - 20px);
   border-radius: 20px;
   color: #ffffff;
-  background-image: radial-gradient(
-    farthest-corner at 40px 40px,
-    #130d0d 60%,
-    #160c0c 80%
-  );
+  background: #131311;
+  background: -webkit-linear-gradient(135deg, #131311 0%, #1a1a1c 100%);
+  background: linear-gradient(135deg, #131311 0%, #1a1a1c 100%);
 }

@@ -6,9 +6,13 @@
   height: 200px;
   background-color: #2e2b2b;
   border-radius: 20px;
-  border: 2px solid #5e5a5a;
+  border: 1px solid #5e5a5a;
+  background: rgba(46, 43, 43, 0.4);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   padding: 0.5em;
-  animation: cardEntrance .5s ease;
+  animation: cardEntrance 1s;
+  animation-timing-function: cubic-bezier(0.77, 0.12, 0.28, 1.04);
 }
 
 @keyframes cardEntrance {
@@ -38,7 +42,8 @@
 }
 
 .BootsListItem:hover .BootImg {
-  animation: bootImageAnimation 20s ease infinite;
+  animation: bootImageAnimation 15s infinite;
+  animation-timing-function: cubic-bezier(0.02, 0.73, 0.99, 0.27);
 }
 
 .BootInfo {
@@ -94,7 +99,10 @@
 
 .Btns {
   transition: all 0.2s ease;
-  background-color: #6b1b1b;
+  background: #6b1b1bcc;
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+  border: 1px solid rgba(107, 27, 27, 0.4);
   color: #ffffff;
   font-family: "Orbitron";
   border-radius: 10px;
