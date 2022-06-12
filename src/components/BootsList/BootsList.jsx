@@ -30,7 +30,7 @@ const BootsList = ({
 
   useEffect(() => {
     getAllBoots();
-  });
+  }, []);
 
   //state that determines whether to show the creation modal or not
   const [showNewBootModal, setShowNewBootModal] = useState(false);
