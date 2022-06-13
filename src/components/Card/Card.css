@@ -8,6 +8,7 @@
   border-radius: 20px;
   border: 1px solid #5e5a5a;
   background: rgba(46, 43, 43, 0.4);
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   padding: 0.5em;

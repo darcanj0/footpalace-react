@@ -6,9 +6,8 @@ import BootsList from "components/BootsList/BootsList";
 import Footer from "components/Footer/Footer";
 
 import { useState } from "react";
-import { toast } from "react-hot-toast";
 
-const HomeContainer = () => {
+const HomeContainer = ({showAlert}) => {
   //bootsList
   const [boots, setBoots] = useState([]);
 
@@ -22,27 +21,6 @@ const HomeContainer = () => {
   const [consumerView, setConsumerView] = useState(true);
   const handleChangeView = () => {
     setConsumerView(!consumerView);
-  };
-
-  //show alert function
-  const showAlert = (type, message) => {
-    if (type === "error") {
-      toast.error(message, {
-        iconTheme: {
-          primary: "#a52a2a",
-          secondary: "#fff",
-        },
-        style: { background: "#333", color: "#fff" },
-      });
-    } else if (type === "success") {
-      toast.success(message, {
-        iconTheme: {
-          primary: "#2AA52A",
-          secondary: "#fff",
-        },
-        style: { background: "#333", color: "#fff" },
-      });
-    }
   };
 
   //baseURL variable
