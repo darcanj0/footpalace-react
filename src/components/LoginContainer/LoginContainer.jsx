@@ -64,10 +64,12 @@ const LoginContainer = ({ showAlert }) => {
             }}
           />
           <button onClick={handleLoginAttempt}>Sign In</button>
-          <a href="" onClick={() => showAlert("error", "In development")}>
+          <a onClick={() => showAlert("error", "In development")}>
             Don't have an account yet?
           </a>
-          <a href="">Forgot my password</a>
+          <a onClick={() => showAlert("error", "In development")}>
+            Forgot my password
+          </a>
         </div>
       </div>
     </div>

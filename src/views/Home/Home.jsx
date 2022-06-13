@@ -52,7 +52,9 @@ function Home() {
   };
 
   useEffect(() => {
-    checkUserAuthorization();
+    setTimeout(() => {
+      checkUserAuthorization();
+    }, 5000);
   }, []);
   return (
     <div className="Home">
