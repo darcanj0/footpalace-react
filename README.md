@@ -28,6 +28,15 @@ Link API rep: https://github.com/darcanj0/footpalace-api
 
 Link FrontEnd rep: https://footpalace-api.onrender.com
 
+## Stacks
+
+<ul>
+  <li>React js</li>
+  <li>React hot toast</li>
+  <li>React router dom</li>
+  <li>Axios</li>
+</ul>
+
 ## Available Scripts
 
 In the project directory, you can run:
