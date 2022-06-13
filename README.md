@@ -3,7 +3,7 @@
 ## Description
 
 This project was developed in the third module of my webdev course at BlueEdTech and it has educational purposes.
-The project is about a fictional football boots store named 'Foot Palace'. This repository contains the API part of the website.
+The project is about a fictional football boots store named 'Foot Palace'. This repository contains the Front End part of the website.
 The Database is hosted in MongoDBAtlas
 
 ## Go and checkout:
