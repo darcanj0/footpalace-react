@@ -1,16 +1,14 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Go and checkout:
 
 Link: https://footpalace-react.vercel.app/
 
 ## Como usar
 
-O projeto react está consumindo uma API, que puxa dados de um banco de dados local
+Link ali em cima
 
-Para rodar o projeto localmente: 
+O projeto react está consumindo uma API no render(online) e um BD no mongoDB Atlas(online)
+
+Para rodar o projeto localmente (em caso de problemas): 
 
 -Rodar a API com o comando "npm run dev"
 
