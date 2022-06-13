@@ -2,23 +2,23 @@
 
 Link: https://footpalace-react.vercel.app/
 
-## Como usar
+## How to use
 
-Link ali em cima
+Link above
 
-O projeto react está consumindo uma API no render(online) e um BD no mongoDB Atlas(online)
+the project consumes an API on render(online) and a DB at mongoDB Atlas(online)
 
-Para rodar o projeto localmente (em caso de problemas): 
+To run locally (in case of issues): 
 
--Rodar a API com o comando "npm run dev"
+-Run API with "npm run dev"
 
--Modificar o arquivo api/index.js : comentar a conexão com o render + descomentar a conexão com localhost:3001
+-Modify the file api/index.js : comment connection with render + uncomment connection with localhost:3001
 
--Rodar o front end com o comando "npm start"
+-Run Front End with "npm start"
 
-Link repositório API: https://github.com/darcanj0/footpalace-api
+Link API rep: https://github.com/darcanj0/footpalace-api
 
-Link repositório FrontEnd: https://github.com/darcanj0/footpalace-react
+Link FrontEnd rep: https://footpalace-api.onrender.com
 
 ## Available Scripts
 
