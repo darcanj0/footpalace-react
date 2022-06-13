@@ -2,7 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Para rodar
+## Go and checkout:
+
+Link: https://footpalace-react.vercel.app/
 
 ## Como usar
 
@@ -10,13 +12,9 @@ O projeto react está consumindo uma API, que puxa dados de um banco de dados lo
 
 Para rodar o projeto localmente: 
 
--Criar um Database no mongodb com o nome "footpalace-db"
-
--Criar duas coleções de dados: "users" e "boots"
-
--Preencher a coleção boots com o arquivo "bootsConsumption.json"
-
 -Rodar a API com o comando "npm run dev"
+
+-Modificar o arquivo api/index.js : comentar a conexão com o render + descomentar a conexão com localhost:3001
 
 -Rodar o front end com o comando "npm start"
 
