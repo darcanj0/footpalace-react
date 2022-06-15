@@ -113,7 +113,7 @@
 .Btns:hover {
   color: #f4b900;
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .bi-cart-dash::before,
