@@ -1,28 +1,22 @@
 import "./Options.css";
 
 import { useNavigate } from "react-router-dom";
-import api from "api";
 
-function Options({ showAlert, checkIfLoggedIn }) {
+function Options({ showAlert, loggedIn, setLoggedIn }) {
   const navigate = useNavigate();
 
+  const handleSignOut = () => {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("token");
+    setLoggedIn(false);
+  };
+
   const handleCartClick = async () => {
-    const loggedIn = checkIfLoggedIn();
     if (!loggedIn) {
       showAlert("error", "You must be logged in before seeing this page!");
       navigate("/login");
     } else {
-      //token must be valid and user must exist
-      try {
-        const response = await api.get(
-          `/users/find-user/${localStorage.getItem("userId")}`,
-          { headers: { Authorization: localStorage.getItem("token") } }
-        );
-        //this request will verify the user id and the user token
-      } catch (error) {
-        showAlert("error", "You are unauthorized. Try logging in again!");
-        navigate("/login");
-      }
+      navigate("/cart");
     }
   };
   return (
@@ -30,12 +24,12 @@ function Options({ showAlert, checkIfLoggedIn }) {
       <button
         className="DefaultButton"
         onClick={() => {
-          showAlert("error", "In development");
+          loggedIn ? handleSignOut() : navigate("/login");
         }}
       >
-        Sign In
+        {loggedIn ? "Sign Out" : "Sign In"}
       </button>
-      <i className="bi bi-cart-plus" onClick={() => handleCartClick}></i>
+      <i className="bi bi-cart-plus" onClick={() => handleCartClick()}></i>
     </div>
   );
 }

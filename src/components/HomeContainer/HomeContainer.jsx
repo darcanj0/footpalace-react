@@ -11,35 +11,36 @@ import api from "api";
 const HomeContainer = ({ showAlert }) => {
   //bootsList
   const [boots, setBoots] = useState([]);
+  //loggedIn
+  const [loggedIn, setLoggedIn] = useState(false);
   //adminView
   const [adminView, setAdminView] = useState(false);
 
-  const checkIfLoggedIn = () => {
+  const checkIfLoggedInAndIfConsumer = async () => {
     const userId = localStorage.getItem("userId");
     const token = localStorage.getItem("token");
     if (!userId || !token) {
-      return false;
+      setLoggedIn(false);
     } else {
-      return true;
-    }
-  };
-  const checkIfConsumer = async () => {
-    const loggedIn = checkIfLoggedIn();
-    if (!loggedIn) {
-      setAdminView(false);
-    } else {
-      //buscar o usuario na api
-      //saber se o usuario e admin
-      const response = await api.get(
-        `/users/find-user/${localStorage.getItem("userId")}`,
-        { headers: { Authorization: localStorage.getItem("token") } }
-      );
-      setAdminView(response.data.admin);
+      //verificacao de autenticidade
+      //se autentico, é adm ou n
+      try {
+        const response = await api.get(
+          `/users/find-user/${localStorage.getItem("userId")}`,
+          { headers: { Authorization: localStorage.getItem("token") } }
+        );
+        //this request will verify the user id and the user token
+        setAdminView(response.data.admin);
+        setLoggedIn(true);
+      } catch (error) {
+        setLoggedIn(false);
+      }
     }
   };
 
   useEffect(() => {
-    checkIfConsumer();
+    checkIfLoggedInAndIfConsumer();
+    console.log(loggedIn)
   }, []);
 
   //search system
@@ -55,7 +56,11 @@ const HomeContainer = ({ showAlert }) => {
         searchInputValue={searchInputValue}
       />
       {!adminView && (
-        <Options showAlert={showAlert} checkIfLoggedIn={checkIfLoggedIn} />
+        <Options
+          showAlert={showAlert}
+          loggedIn={loggedIn}
+          setLoggedIn={setLoggedIn}
+        />
       )}
       <BootsList
         adminView={adminView}
