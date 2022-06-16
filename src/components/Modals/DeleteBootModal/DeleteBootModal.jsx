@@ -11,7 +11,6 @@ const DeleteBootModal = ({
   handleShowDeleteBootModal,
   showDeleteBootModal,
   identity,
-  baseURL,
   showAlert,
   getAllBoots,
 }) => {

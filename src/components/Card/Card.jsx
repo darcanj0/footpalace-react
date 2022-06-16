@@ -49,7 +49,6 @@ function Card({
         handleShowDeleteBootModal={handleShowDeleteBootModal}
         showDeleteBootModal={showDeleteBootModal}
         identity={identity}
-        baseURL={baseURL}
         showAlert={showAlert}
         getAllBoots={getAllBoots}
       />
@@ -57,7 +56,6 @@ function Card({
         handleShowEditBootModal={handleShowEditBootModal}
         showEditBootModal={showEditBootModal}
         identity={identity}
-        baseURL={baseURL}
         showAlert={showAlert}
         getAllBoots={getAllBoots}
         name={name}

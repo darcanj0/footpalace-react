@@ -8,7 +8,6 @@ import api from "api";
 const EditBootModal = ({
   showEditBootModal,
   handleShowEditBootModal,
-  baseURL,
   showAlert,
   getAllBoots,
   identity,
