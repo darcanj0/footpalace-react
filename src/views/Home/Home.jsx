@@ -2,9 +2,6 @@ import "./Home.css";
 
 import HomeContainer from "components/HomeContainer/HomeContainer";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import api from "api";
 
 function Home() {
   //show alert function
@@ -27,35 +24,6 @@ function Home() {
       });
     }
   };
-
-  const navigate = useNavigate();
-
-  const checkUserAuthorization = async () => {
-    const loggedIn = localStorage.getItem("token");
-    //must have a token
-    if (!loggedIn) {
-      showAlert("error", "You must be logged in before seeing this page!");
-      navigate("/login");
-    } else {
-      //token must be valid and user must exist
-      try {
-        const response = await api.get(
-          `/users/find-user/${localStorage.getItem("userId")}`,
-          { headers: { Authorization: localStorage.getItem("token") } }
-        );
-        //this request will verify the user id and the user token
-      } catch (error) {
-        showAlert("error", "You are unauthorized. Try logging in again!");
-        navigate("/login");
-      }
-    }
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      checkUserAuthorization();
-    }, 5000);
-  }, []);
   return (
     <div className="Home">
       <HomeContainer showAlert={showAlert} />

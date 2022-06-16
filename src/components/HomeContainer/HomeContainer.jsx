@@ -5,11 +5,42 @@ import Options from "components/Options/Options";
 import BootsList from "components/BootsList/BootsList";
 import Footer from "components/Footer/Footer";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import api from "api";
 
-const HomeContainer = ({showAlert}) => {
+const HomeContainer = ({ showAlert }) => {
   //bootsList
   const [boots, setBoots] = useState([]);
+  //adminView
+  const [adminView, setAdminView] = useState(false);
+
+  const checkIfLoggedIn = () => {
+    const userId = localStorage.getItem("userId");
+    const token = localStorage.getItem("token");
+    if (!userId || !token) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  const checkIfConsumer = async () => {
+    const loggedIn = checkIfLoggedIn();
+    if (!loggedIn) {
+      setAdminView(false);
+    } else {
+      //buscar o usuario na api
+      //saber se o usuario e admin
+      const response = await api.get(
+        `/users/find-user/${localStorage.getItem("userId")}`,
+        { headers: { Authorization: localStorage.getItem("token") } }
+      );
+      setAdminView(response.data.admin);
+    }
+  };
+
+  useEffect(() => {
+    checkIfConsumer();
+  }, []);
 
   //search system
   const [searchInputValue, setSearchInputValue] = useState("");
@@ -17,22 +48,17 @@ const HomeContainer = ({showAlert}) => {
     setSearchInputValue(event.target.value);
   };
 
-  //toggle between adm and user vew
-  const [consumerView, setConsumerView] = useState(true);
-  const handleChangeView = () => {
-    setConsumerView(!consumerView);
-  };
-
   return (
     <div className="HomeContainer">
       <Header
-        changeView={handleChangeView}
         handleSearchInputChange={handleSearchInputChange}
         searchInputValue={searchInputValue}
       />
-      {consumerView && <Options showAlert={showAlert} />}
+      {!adminView && (
+        <Options showAlert={showAlert} checkIfLoggedIn={checkIfLoggedIn} />
+      )}
       <BootsList
-        consumerView={consumerView}
+        adminView={adminView}
         showAlert={showAlert}
         boots={boots}
         setBoots={setBoots}

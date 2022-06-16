@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 import api from "api";
 
 const BootsList = ({
-  consumerView,
+  adminView,
   showAlert,
   boots,
   setBoots,
@@ -61,10 +61,10 @@ const BootsList = ({
       />
       <div
         className="ButtonsContainer"
-        style={{ marginTop: consumerView ? "0px" : "100px" }}
+        style={{ marginTop: adminView ? "100px" : "0px" }}
       >
         <DefaultButton onclick={getAllBoots}>List All Boots</DefaultButton>
-        {!consumerView && (
+        {adminView && (
           <DefaultButton onclick={handleShowNewBootModal}>
             Add new Boot
           </DefaultButton>
@@ -84,7 +84,7 @@ const BootsList = ({
                   quantity={bootsSelection[elem._id]}
                   onAdd={addItem}
                   onRemove={removeItem}
-                  consumerView={consumerView}
+                  adminView={adminView}
                   showAlert={showAlert}
                   getAllBoots={getAllBoots}
                 />
@@ -108,7 +108,7 @@ const BootsList = ({
                     quantity={bootsSelection[elem._id]}
                     onAdd={addItem}
                     onRemove={removeItem}
-                    consumerView={consumerView}
+                    adminView={adminView}
                     showAlert={showAlert}
                     getAllBoots={getAllBoots}
                   />

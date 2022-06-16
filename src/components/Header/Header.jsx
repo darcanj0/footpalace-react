@@ -1,9 +1,7 @@
 import "./Header.css";
 
 const Header = ({
-  changeView,
   searchInputValue,
-  handleBootSearch,
   handleSearchInputChange,
 }) => {
   return (
@@ -17,9 +15,6 @@ const Header = ({
           />
           <span>Foot Palace</span>
         </div>
-        <button className="DefaultButton" onClick={changeView}>
-          View
-        </button>
         <div className="Search">
           <input
             spellCheck="false"

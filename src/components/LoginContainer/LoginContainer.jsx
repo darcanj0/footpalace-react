@@ -14,7 +14,7 @@ const LoginContainer = ({
     email: "",
     password: "",
     name: "",
-    adminPassword: "",
+    adminPass: "",
   });
   const handleInputsChanges = (event, field) => {
     setInputsValues({ ...inputsValues, [field]: event.target.value });
@@ -28,7 +28,7 @@ const LoginContainer = ({
           email: "",
           password: "",
           name: "",
-          adminPassword: "",
+          adminPass: "",
         });
         handleUserCreationMode();
       }
@@ -93,13 +93,20 @@ const LoginContainer = ({
             <>
               <input
                 type="text"
-                name="User Name"
+                name="userName"
                 placeholder="User Name"
                 required
                 value={inputsValues.name}
                 onChange={(e) => {
                   handleInputsChanges(e, "name");
                 }}
+              />
+              <input
+                type="password"
+                name="adminPass"
+                placeholder="Adm pass ( for managers )"
+                value={inputsValues.adminPass}
+                onChange={(e) => {handleInputsChanges(e, "adminPass")}}
               />
               <button onClick={handleUserCreation}>Create Account</button>
               <a onClick={handleUserCreationMode}>Go back</a>

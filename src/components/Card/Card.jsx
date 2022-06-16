@@ -14,7 +14,7 @@ function Card({
   quantity,
   onAdd,
   onRemove,
-  consumerView,
+  adminView,
   showAlert,
   getAllBoots,
 }) {
@@ -69,7 +69,7 @@ function Card({
           <div className="BootName">{name}</div>
           <div className="BootPrice">{`U$ ${price}`}</div>
           <div className="BootDescription">{description}</div>
-          {consumerView ? (
+          {!adminView ? (
             <div className="BootButtons Actions">
               {removeButton(quantity, identity)}
               {badgeCounter(quantity)}
