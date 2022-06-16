@@ -9,7 +9,6 @@ import api from "api";
 const NewBootModal = ({
   handleShowNewBootModal,
   showNewBootModal,
-  baseURL,
   showAlert,
   getAllBoots,
 }) => {

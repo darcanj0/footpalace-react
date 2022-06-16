@@ -1,7 +1,13 @@
 import LoginContainer from "components/LoginContainer/LoginContainer";
 import { toast } from "react-hot-toast";
+import { useState } from "react";
 
 const Login = () => {
+  //signing in or signing up
+  const [userCreationMode, setUserCreationMode] = useState(false);
+  const handleUserCreationMode = () => {
+    setUserCreationMode(!userCreationMode);
+  };
   //show alert function
   const showAlert = (type, message) => {
     if (type === "error") {
@@ -24,7 +30,11 @@ const Login = () => {
   };
   return (
     <div className="Home">
-      <LoginContainer showAlert={showAlert} />
+      <LoginContainer
+        showAlert={showAlert}
+        userCreationMode={userCreationMode}
+        handleUserCreationMode={handleUserCreationMode}
+      />
     </div>
   );
 };

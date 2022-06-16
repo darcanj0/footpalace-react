@@ -23,9 +23,6 @@ const HomeContainer = ({showAlert}) => {
     setConsumerView(!consumerView);
   };
 
-  //baseURL variable
-  const baseURL = "http://localhost:3001";
-
   return (
     <div className="HomeContainer">
       <Header
@@ -36,7 +33,6 @@ const HomeContainer = ({showAlert}) => {
       {consumerView && <Options showAlert={showAlert} />}
       <BootsList
         consumerView={consumerView}
-        baseURL={baseURL}
         showAlert={showAlert}
         boots={boots}
         setBoots={setBoots}

@@ -15,7 +15,6 @@ function Card({
   onAdd,
   onRemove,
   consumerView,
-  baseURL,
   showAlert,
   getAllBoots,
 }) {

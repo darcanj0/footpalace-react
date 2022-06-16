@@ -4,25 +4,49 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "api";
 
-const LoginContainer = ({ showAlert }) => {
+const LoginContainer = ({
+  showAlert,
+  userCreationMode,
+  handleUserCreationMode,
+}) => {
   let navigate = useNavigate();
   const [inputsValues, setInputsValues] = useState({
     email: "",
     password: "",
+    name: "",
+    adminPassword: "",
   });
   const handleInputsChanges = (event, field) => {
     setInputsValues({ ...inputsValues, [field]: event.target.value });
   };
-  const handleLoginAttempt = async () => {
+  const handleUserCreation = async () => {
     try {
-      const response = await api.post("/login", inputsValues);
+      const response = await api.post("/users/create-user", inputsValues);
+      if (response.request.status === 201) {
+        showAlert("success", "Your account has been created!");
+        setInputsValues({
+          email: "",
+          password: "",
+          name: "",
+          adminPassword: "",
+        });
+        handleUserCreationMode();
+      }
+    } catch (error) {
+      showAlert("error", error.response.data.message);
+    }
+  };
+  const handleLoginAttempt = async () => {
+    const loginInfo = {
+      email: inputsValues.email,
+      password: inputsValues.password,
+    };
+    try {
+      const response = await api.post("/login", loginInfo);
       if (response.request.status === 200) {
         showAlert("success", "Welcome!");
         localStorage.setItem("token", response.data.token);
-        // localStorage.setItem("token", "isso é um tokem invalido")
         localStorage.setItem("userId", response.data.userId);
-        // localStorage.setItem("userId", "isso é uma id inválida");
-        // localStorage.removeItem("token");
         navigate("/");
       }
     } catch (error) {
@@ -56,20 +80,39 @@ const LoginContainer = ({ showAlert }) => {
           <input
             type="password"
             name="password"
-            placeholder="User password"
+            placeholder={
+              userCreationMode ? "Create your password" : "User password"
+            }
             required
             value={inputsValues.password}
             onChange={(e) => {
               handleInputsChanges(e, "password");
             }}
           />
-          <button onClick={handleLoginAttempt}>Sign In</button>
-          <a onClick={() => showAlert("error", "In development")}>
-            Don't have an account yet?
-          </a>
-          <a onClick={() => showAlert("error", "In development")}>
-            Forgot my password
-          </a>
+          {userCreationMode ? (
+            <>
+              <input
+                type="text"
+                name="User Name"
+                placeholder="User Name"
+                required
+                value={inputsValues.name}
+                onChange={(e) => {
+                  handleInputsChanges(e, "name");
+                }}
+              />
+              <button onClick={handleUserCreation}>Create Account</button>
+              <a onClick={handleUserCreationMode}>Go back</a>
+            </>
+          ) : (
+            <>
+              <button onClick={handleLoginAttempt}>Sign In</button>
+              <a onClick={handleUserCreationMode}>Don't have an account yet?</a>
+              <a onClick={() => showAlert("error", "In development")}>
+                Forgot my password
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>

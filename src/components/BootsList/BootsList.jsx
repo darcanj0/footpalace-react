@@ -9,7 +9,6 @@ import api from "api";
 
 const BootsList = ({
   consumerView,
-  baseURL,
   showAlert,
   boots,
   setBoots,
@@ -57,7 +56,6 @@ const BootsList = ({
       <NewBootModal
         handleShowNewBootModal={handleShowNewBootModal}
         showNewBootModal={showNewBootModal}
-        baseURL={baseURL}
         showAlert={showAlert}
         getAllBoots={getAllBoots}
       />
@@ -87,7 +85,6 @@ const BootsList = ({
                   onAdd={addItem}
                   onRemove={removeItem}
                   consumerView={consumerView}
-                  baseURL={baseURL}
                   showAlert={showAlert}
                   getAllBoots={getAllBoots}
                 />
@@ -112,7 +109,6 @@ const BootsList = ({
                     onAdd={addItem}
                     onRemove={removeItem}
                     consumerView={consumerView}
-                    baseURL={baseURL}
                     showAlert={showAlert}
                     getAllBoots={getAllBoots}
                   />
